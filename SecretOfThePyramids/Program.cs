@@ -19,7 +19,12 @@ namespace SecretOfThePyramids
             string warning = textFileReader("Warning.txt");
             Console.WriteLine(warning);
             Console.ReadLine();
+            Console.Clear();
 
+            string page1 = textFileReader("Page1.txt");
+            Console.WriteLine(page1);
+            Console.ReadLine();
+            
             /*
             Console.WriteLine("Do you want 1 or 2?");
             string userValue = Console.ReadLine();
