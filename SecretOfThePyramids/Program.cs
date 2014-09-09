@@ -11,9 +11,16 @@ namespace SecretOfThePyramids
     {
         static void Main(string[] args)
         {
-            string firstPrompt = textFileReader("TextFile0.txt");
-            Console.WriteLine(firstPrompt);
+            string titlePage = textFileReader("TitlePage.txt");
+            Console.WriteLine(titlePage);
             Console.ReadLine();
+            Console.Clear();
+
+            string warning = textFileReader("Warning.txt");
+            Console.WriteLine(warning);
+            Console.ReadLine();
+
+            /*
             Console.WriteLine("Do you want 1 or 2?");
             string userValue = Console.ReadLine();
             if (userValue == "1")
@@ -26,6 +33,7 @@ namespace SecretOfThePyramids
                 Console.WriteLine("This should go to page 2.");
                 Console.ReadLine();
             }
+             * */
         }
        private static string textFileReader(string textFile)
         {
