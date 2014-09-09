@@ -24,6 +24,16 @@ namespace SecretOfThePyramids
             string page1 = textFileReader("Page1.txt");
             Console.WriteLine(page1);
             Console.ReadLine();
+            Console.Clear();
+
+            string page2 = textFileReader("Page2.txt");
+            Console.WriteLine(page2);
+            Console.ReadLine();
+            Console.Clear();
+
+            string page3 = textFileReader("Page3.txt");
+            Console.WriteLine(page3);
+            Console.ReadLine();
             
             /*
             Console.WriteLine("Do you want 1 or 2?");
