@@ -35,19 +35,38 @@ namespace SecretOfThePyramids
             Console.WriteLine(page3);
             string userValue = Console.ReadLine();
             userValue = userValue.ToUpper();
-            if (userValue == "FOLLOW")
+            bool clearToGo = false;
+            while (clearToGo == false)
             {
-                Console.WriteLine("Go to FOLLOW text file");
-                Console.ReadLine();
+                if (userValue == "FOLLOW")
+                {
+                    clearToGo = true;
+                    Console.Clear();
+                    string page13 = textFileReader("Page13.txt");
+                    Console.WriteLine(page13);
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+                else if (userValue == "HOTEL")
+                {
+                    clearToGo = true;
+                    Console.Clear();
+                    string page4 = textFileReader("Page4.txt");
+                    Console.WriteLine(page4);
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+                else
+                {
+                    Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                    userValue = Console.ReadLine();
+                    userValue = userValue.ToUpper();
+                }
+
             }
-            else if (userValue == "HOTEL")
-            {
-                Console.WriteLine("This should go to the page for returning to the HOTEL.");
-                Console.ReadLine();
-            }
-             
+       
         }
-       private static string textFileReader(string textFile)
+        private static string textFileReader(string textFile)
         {
             //this is the method that will read each text file
             
