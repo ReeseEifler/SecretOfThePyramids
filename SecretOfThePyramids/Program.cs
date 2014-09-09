@@ -33,22 +33,19 @@ namespace SecretOfThePyramids
 
             string page3 = textFileReader("Page3.txt");
             Console.WriteLine(page3);
-            Console.ReadLine();
-            
-            /*
-            Console.WriteLine("Do you want 1 or 2?");
             string userValue = Console.ReadLine();
-            if (userValue == "1")
+            userValue = userValue.ToUpper();
+            if (userValue == "FOLLOW")
             {
-                Console.WriteLine("Hopefully this will go to page 1!");
+                Console.WriteLine("Go to FOLLOW text file");
                 Console.ReadLine();
             }
-            else if (userValue == "2")
+            else if (userValue == "HOTEL")
             {
-                Console.WriteLine("This should go to page 2.");
+                Console.WriteLine("This should go to the page for returning to the HOTEL.");
                 Console.ReadLine();
             }
-             * */
+             
         }
        private static string textFileReader(string textFile)
         {
