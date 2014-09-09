@@ -25,24 +25,25 @@ namespace SecretOfThePyramids
             myReader.Close();
             Console.ReadLine();
             */
-            string firstPrompt = textFileReader();
-            Console.WriteLine(firstPrompt)
+            string firstPrompt = textFileReader("TextFile0.txt");
+            Console.WriteLine(firstPrompt);
+            Console.ReadLine();
         }
-       private string textFileReader()
+       private static string textFileReader(string textFile)
         {
             //this is the method that will read each text file
-            string textFile = "TextFile0";
+            //string textFile = "TextFile0";
             StreamReader myReader = new StreamReader(textFile);
             string line = "";
 
             while (line != null)
             {
                 line = myReader.ReadLine();
-                //if (line != null)
-                  //  Console.WriteLine(line);
+                if (line != null)
+                    Console.WriteLine(line);
             }
 
-            //myReader.Close();
+            myReader.Close();
             //Console.ReadLine();
             return line;
         } 
