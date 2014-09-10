@@ -21,17 +21,17 @@ namespace SecretOfThePyramids
             Console.ReadLine();
             Console.Clear();
 
-            string page1 = textFileReader("Page1.txt");
+            string page1 = textFileReader("Page001.txt");
             Console.WriteLine(page1);
             Console.ReadLine();
             Console.Clear();
 
-            string page2 = textFileReader("Page2.txt");
+            string page2 = textFileReader("Page002.txt");
             Console.WriteLine(page2);
             Console.ReadLine();
             Console.Clear();
 
-            string page3 = textFileReader("Page3.txt");
+            string page3 = textFileReader("Page003.txt");
             Console.WriteLine(page3);
             string userValue = Console.ReadLine();
             userValue = userValue.ToUpper();
@@ -42,16 +42,39 @@ namespace SecretOfThePyramids
                 {
                     clearToGo = true;
                     Console.Clear();
-                    string page13 = textFileReader("Page13.txt");
+                    string page13 = textFileReader("Page013.txt");
                     Console.WriteLine(page13);
                     Console.ReadLine();
                     Console.Clear();
+                    string page37 = textFileReader("Page037.txt");
+                    Console.WriteLine(page37);
+                    Console.ReadLine();
+                    Console.Clear();
+                    string page96 = textFileReader("Page096.txt");
+                    Console.WriteLine(page96);
+                    Console.ReadLine();
+                    string page87 = textFileReader("Page087.txt");
+                    Console.WriteLine(page87);
+                    userValue = Console.ReadLine();
+                    userValue = userValue.ToUpper();
+                    clearToGo = false;
+                    while (clearToGo == false)
+                    {
+                        if (userValue == "ACCEPT")
+                        {
+                            clearToGo = true;
+                            Console.Clear();
+                            string page73 = textFileReader("Page073.txt");
+                            Console.WriteLine(page73);
+                            
+                        }
+                    }
                 }
                 else if (userValue == "HOTEL")
                 {
                     clearToGo = true;
                     Console.Clear();
-                    string page4 = textFileReader("Page4.txt");
+                    string page4 = textFileReader("Page004.txt");
                     Console.WriteLine(page4);
                     Console.ReadLine();
                     Console.Clear();
