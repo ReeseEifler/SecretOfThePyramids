@@ -66,7 +66,21 @@ namespace SecretOfThePyramids
                             Console.Clear();
                             string page73 = textFileReader("Page073.txt");
                             Console.WriteLine(page73);
-                            
+                            Console.ReadLine();  
+                        }
+                        else if (userValue == "ESCAPE")
+                        {
+                            clearToGo = true;
+                            Console.Clear();
+                            string page104 = textFileReader("Page104.txt");
+                            Console.WriteLine(page104);
+                            Console.ReadLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                            userValue = Console.ReadLine();
+                            userValue = userValue.ToUpper();
                         }
                     }
                 }
