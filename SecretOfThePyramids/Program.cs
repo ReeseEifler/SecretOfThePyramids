@@ -11,28 +11,28 @@ namespace SecretOfThePyramids
     {
         static void Main(string[] args)
         {
-            string titlePage = textFileReader("TitlePage.txt");
-            Console.WriteLine(titlePage);
+            string page = textFileReader("TitlePage.txt");
+            Console.WriteLine(page);
             Console.ReadLine();
             Console.Clear();
 
-            string warning = textFileReader("Warning.txt");
-            Console.WriteLine(warning);
+            page = textFileReader("Warning.txt");
+            Console.WriteLine(page);
             Console.ReadLine();
             Console.Clear();
 
-            string page1 = textFileReader("Page001.txt");
-            Console.WriteLine(page1);
+            page = textFileReader("Page001.txt");
+            Console.WriteLine(page);
             Console.ReadLine();
             Console.Clear();
 
-            string page2 = textFileReader("Page002.txt");
-            Console.WriteLine(page2);
+            page = textFileReader("Page002.txt");
+            Console.WriteLine(page);
             Console.ReadLine();
             Console.Clear();
 
-            string page3 = textFileReader("Page003.txt");
-            Console.WriteLine(page3);
+            page = textFileReader("Page003.txt");
+            Console.WriteLine(page);
             string userValue = Console.ReadLine();
             userValue = userValue.ToUpper();
             bool clearToGo = false;
@@ -42,20 +42,20 @@ namespace SecretOfThePyramids
                 {
                     clearToGo = true;
                     Console.Clear();
-                    string page13 = textFileReader("Page013.txt");
-                    Console.WriteLine(page13);
+                    page = textFileReader("Page013.txt");
+                    Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
-                    string page37 = textFileReader("Page037.txt");
-                    Console.WriteLine(page37);
+                    page = textFileReader("Page037.txt");
+                    Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
-                    string page96 = textFileReader("Page096.txt");
-                    Console.WriteLine(page96);
+                    page = textFileReader("Page096.txt");
+                    Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
-                    string page87 = textFileReader("Page087.txt");
-                    Console.WriteLine(page87);
+                    page = textFileReader("Page087.txt");
+                    Console.WriteLine(page);
                     userValue = Console.ReadLine();
                     userValue = userValue.ToUpper();
                     clearToGo = false;
@@ -65,9 +65,35 @@ namespace SecretOfThePyramids
                         {
                             clearToGo = true;
                             Console.Clear();
-                            string page73 = textFileReader("Page073.txt");
-                            Console.WriteLine(page73);
-                            Console.ReadLine();  
+                            page = textFileReader("Page073.txt");
+                            Console.WriteLine(page);
+                            userValue = Console.ReadLine();
+                            userValue = userValue.ToUpper();
+                            clearToGo = false;
+                            while (clearToGo == false)
+                            {
+                                if (userValue == "JUMP")
+                                {
+                                    clearToGo = true;
+                                    Console.Clear();
+                                    page = textFileReader("Page103.txt");
+                                    Console.WriteLine(page);
+                                    Console.ReadLine();
+                                    page = textFileReader("Page110.txt");
+                                    Console.WriteLine(page);
+
+                                }
+                                else if (userValue == "CHANCE")
+                                {
+
+                                }
+                                else
+                                {
+                                    Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                                    userValue = Console.ReadLine();
+                                    userValue = userValue.ToUpper();
+                                }
+                            }
                         }
                         else if (userValue == "ESCAPE")
                         {
