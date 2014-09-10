@@ -53,6 +53,7 @@ namespace SecretOfThePyramids
                     string page96 = textFileReader("Page096.txt");
                     Console.WriteLine(page96);
                     Console.ReadLine();
+                    Console.Clear();
                     string page87 = textFileReader("Page087.txt");
                     Console.WriteLine(page87);
                     userValue = Console.ReadLine();
@@ -102,7 +103,7 @@ namespace SecretOfThePyramids
 
             }
        
-        }
+        }        
         private static string textFileReader(string textFile)
         {
             //this is the method that will read each text file
@@ -118,6 +119,6 @@ namespace SecretOfThePyramids
             }
             myReader.Close();
             return line;
-        } 
+        }
     }
 }
