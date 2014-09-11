@@ -11,15 +11,15 @@ namespace SecretOfThePyramids
     {
         static void Main(string[] args)
         {
-            int caseSwitch = 0;
+            string caseSwitch = "TITLE";
             bool clearToGo = false;
             string userValue = "";
             string page = "";
 
             switch (caseSwitch)
             {
-                case 0:
-                    page = textFileReader("TitlePage.txt");
+                case "TITLE":
+                    page = textFileReader("Title.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
@@ -29,136 +29,321 @@ namespace SecretOfThePyramids
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("Page001.txt");
+                    page = textFileReader("001.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    goto case 1;
+                    goto case "GO";
 
-                case 1:
-                    page = textFileReader("Page002.txt");
+                case "GO":
+                    page = textFileReader("002.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("Page003.txt");
+                    page = textFileReader("003.txt");
                     Console.WriteLine(page);
-                    userValue = Console.ReadLine();
-                    userValue = userValue.ToUpper();
 
                     while (clearToGo == false)
                     {
+                        userValue = Console.ReadLine();
+                        userValue = userValue.ToUpper();
+
                         if (userValue == "FOLLOW")
                         {
-                            goto case 2;
+                            goto case "FOLLOW";
                         }
                         else if (userValue == "HOTEL")
                         {
-                            goto case 3;
+                            goto case "HOTEL";
                         }
                         else
                         {
                             Console.WriteLine("I didn't understand that entry. Try typing it in again.");
-                            userValue = Console.ReadLine();
-                            userValue = userValue.ToUpper();
                         }
                     }
                     
                     
                     break;
 
-                case 2:
+                case "FOLLOW":
                     Console.Clear();
 
-                    page = textFileReader("Page013.txt");
+                    page = textFileReader("013.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("Page037.txt");
+                    page = textFileReader("037.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("Page096.txt");
+                    page = textFileReader("096.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("Page087.txt");
+                    page = textFileReader("087.txt");
                     Console.WriteLine(page);
-                    userValue = Console.ReadLine();
-                    userValue = userValue.ToUpper();
 
                     while (clearToGo == false)
                     {
+                        userValue = Console.ReadLine();
+                        userValue = userValue.ToUpper();
+
                         if (userValue == "ACCEPT")
                         {
-                            goto case 4;
+                            goto case "ACCEPT";
                         }
                         else if (userValue == "ESCAPE")
                         {
-                            goto case 5;
+                            goto case "ESCAPE";
                         }
                         else
                         {
                             Console.WriteLine("I didn't understand that entry. Try typing it in again.");
-                            userValue = Console.ReadLine();
-                            userValue = userValue.ToUpper();
                         }
                     }
                     
                     break;
 
-                case 3:
+                case "HOTEL":
                     Console.Clear();
 
-                    page = textFileReader("Page004.txt");
+                    page = textFileReader("004.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("Page032.txt");
+                    page = textFileReader("032.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("Page026.txt");
+                    page = textFileReader("026.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("Page023.txt");
+                    page = textFileReader("023.txt");
                     Console.WriteLine(page);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Console.ReadLine();
+                        userValue = userValue.ToUpper();
+
+                        if (userValue == "RISK")
+                        {
+                            goto case "RISK";
+                        }
+                        else if (userValue == "POLICE")
+                        {
+                            goto case "POLICE";
+                        }
+                        else
+                        {
+                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                        }
+                    }
 
                     break;
 
-                case 4:
+                case "ACCEPT":
                     Console.Clear();
 
-                    page = textFileReader("Page073.txt");
+                    page = textFileReader("073.txt");
                     Console.WriteLine(page);
-                    userValue = Console.ReadLine();
-                    userValue = userValue.ToUpper();
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Console.ReadLine();
+                        userValue = userValue.ToUpper();
+
+                        if (userValue == "JUMP")
+                        {
+                            goto case "JUMP";
+                        }
+                        else if (userValue == "CHANCE")
+                        {
+                            goto case "CHANCE";
+                        }
+                        else
+                        {
+                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                        }
+                    }
 
                     break;
 
-                case 5:
+                case "ESCAPE":
                     Console.Clear();
 
-                    page = textFileReader("Page104.txt");
+                    page = textFileReader("104.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("Page100.txt");
+                    page = textFileReader("100.txt");
                     Console.WriteLine(page);
-                    userValue = Console.ReadLine();
-                    userValue = userValue.ToUpper();
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Console.ReadLine();
+                        userValue = userValue.ToUpper();
+
+                        if (userValue == "GO")
+                        {
+                            goto case "GO";
+                        }
+                        else if (userValue == "NO")
+                        {
+                            goto case "NO";
+                        }
+                        else
+                        {
+                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                        }
+                    }
 
                     break;
 
+                case "RISK":
+                    Console.Clear();
+
+                    page = textFileReader("017.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = textFileReader("053.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = textFileReader("060.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = textFileReader("069.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = textFileReader("027.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = textFileReader("068.txt");
+                    Console.WriteLine(page);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Console.ReadLine();
+                        userValue = userValue.ToUpper();
+
+                        if (userValue == "TIME")
+                        {
+                            goto case "TIME";
+                        }
+                        else if (userValue == "ESCAPE")
+                        {
+                            goto case "ESCAPE2";
+                        }
+                        else
+                        {
+                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                        }
+                    }
+
+                    break;
+
+                case "POLICE":
+
+                    break;
+
+                case "JUMP":
+                    Console.Clear();
+
+                    page = textFileReader("103.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = textFileReader("110.txt");
+                    Console.WriteLine(page);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Console.ReadLine();
+                        userValue = userValue.ToUpper();
+
+                        if (userValue == "GET OUT")
+                        {
+                            goto case "GET OUT";
+                        }
+                        else if (userValue == "CONTINUE")
+                        {
+                            goto case "CONTINUE";
+                        }
+                        else
+                        {
+                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                        }
+                    }
+
+                    break;
+
+                case "CHANCE":
+
+                    break;
+
+                case "NO":
+
+                    break;
+
+                case "TIME":
+
+                    break;
+
+                case "ESCAPE2":
+
+                    break;
+
+                case "GET OUT":
+                    Console.Clear();
+
+                    page = textFileReader("084.txt");
+                    Console.WriteLine(page);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Console.ReadLine();
+                        userValue = userValue.ToUpper();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Type RESTART to restart or just press ENTER to quit.");
+                        }
+                    }
+
+                    break;
+
+                case "CONTINUE":
+
+                    break;
             }
         }
     
@@ -186,95 +371,8 @@ namespace SecretOfThePyramids
 }
 
 /*
- * page = textFileReader("TitlePage.txt");
-            Console.WriteLine(page);
-            Console.ReadLine();
-            Console.Clear();
 
-            page = textFileReader("Warning.txt");
-            Console.WriteLine(page);
-            Console.ReadLine();
-            Console.Clear();
-            
-            page = textFileReader("Page001.txt");
-            Console.WriteLine(page);
-            Console.ReadLine();
-            Console.Clear();
-
-            page = textFileReader("Page002.txt");
-            Console.WriteLine(page);
-            Console.ReadLine();
-            Console.Clear();
-
-            page = textFileReader("Page003.txt");
-            Console.WriteLine(page);
-            userValue = Console.ReadLine();
-            userValue = userValue.ToUpper();
-
-            while (clearToGo == false)
-            {
-                if (userValue == "FOLLOW")
-                {
-                    
-                    Console.Clear();
-
-                    page = textFileReader("Page013.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = textFileReader("Page037.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = textFileReader("Page096.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = textFileReader("Page087.txt");
-                    Console.WriteLine(page);
-                    userValue = Console.ReadLine();
-                    userValue = userValue.ToUpper();
-
-                    
-
-                    while (clearToGo == false)
-                    {
-                        if (userValue == "ACCEPT")
-                        {
-                            clearToGo = true;
-                            Console.Clear();
-
-                            page = textFileReader("Page073.txt");
-                            Console.WriteLine(page);
-                            userValue = Console.ReadLine();
-                            userValue = userValue.ToUpper();
-
-                            clearToGo = false;
-
-                            while (clearToGo == false)
-                            {
-                                if (userValue == "JUMP")
-                                {
-                                    clearToGo = true;
-                                    Console.Clear();
-
-                                    page = textFileReader("Page103.txt");
-                                    Console.WriteLine(page);
-                                    Console.ReadLine();
-                                    Console.Clear();
-
-                                    page = textFileReader("Page110.txt");
-                                    Console.WriteLine(page);
-                                    userValue = Console.ReadLine();
-                                    userValue = userValue.ToUpper();
-
-                                    clearToGo = false;
-
-                                    while (clearToGo == false)
-                                    {
+                        
                                         if (userValue == "GET OUT")
                                         {
                                             clearToGo = true;
