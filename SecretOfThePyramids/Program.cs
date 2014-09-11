@@ -19,8 +19,6 @@ namespace SecretOfThePyramids
             switch (caseSwitch)
             {
                 case 0:
-
-
                     page = textFileReader("TitlePage.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
@@ -38,8 +36,6 @@ namespace SecretOfThePyramids
 
                     goto case 1;
 
-                    break;
-
                 case 1:
                     page = textFileReader("Page002.txt");
                     Console.WriteLine(page);
@@ -55,13 +51,11 @@ namespace SecretOfThePyramids
                     {
                         if (userValue == "FOLLOW")
                         {
-                            caseSwitch = 2;
-                            break;
+                            goto case 2;
                         }
                         else if (userValue == "HOTEL")
                         {
-                            caseSwitch = 3;
-                            break;
+                            goto case 3;
                         }
                         else
                         {
@@ -70,8 +64,101 @@ namespace SecretOfThePyramids
                             userValue = userValue.ToUpper();
                         }
                     }
+                    
+                    
+                    break;
+
+                case 2:
+                    Console.Clear();
+
+                    page = textFileReader("Page013.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = textFileReader("Page037.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = textFileReader("Page096.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = textFileReader("Page087.txt");
+                    Console.WriteLine(page);
+                    userValue = Console.ReadLine();
+                    userValue = userValue.ToUpper();
+
+                    while (clearToGo == false)
+                    {
+                        if (userValue == "ACCEPT")
+                        {
+                            goto case 4;
+                        }
+                        else if (userValue == "ESCAPE")
+                        {
+                            goto case 5;
+                        }
+                        else
+                        {
+                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                            userValue = Console.ReadLine();
+                            userValue = userValue.ToUpper();
+                        }
+                    }
+                    
+                    break;
+
+                case 3:
+                    Console.Clear();
+
+                    page = textFileReader("Page004.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = textFileReader("Page032.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = textFileReader("Page026.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = textFileReader("Page023.txt");
+                    Console.WriteLine(page);
 
                     break;
+
+                case 4:
+                    Console.Clear();
+
+                    page = textFileReader("Page073.txt");
+                    Console.WriteLine(page);
+                    userValue = Console.ReadLine();
+                    userValue = userValue.ToUpper();
+
+                    break;
+
+                case 5:
+                    Console.Clear();
+
+                    page = textFileReader("Page104.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = textFileReader("Page100.txt");
+                    Console.WriteLine(page);
+                    userValue = Console.ReadLine();
+                    userValue = userValue.ToUpper();
+
+                    break;
+
             }
         }
     
