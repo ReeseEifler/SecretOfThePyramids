@@ -19,17 +19,19 @@ namespace SecretOfThePyramids
             switch (caseSwitch)
             {
                 case "TITLE":
-                    page = textFileReader("Title.txt");
+                    Console.Clear();
+
+                    page = read("Title.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("Warning.txt");
+                    page = read("Warning.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("001.txt");
+                    page = read("001.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
@@ -37,12 +39,12 @@ namespace SecretOfThePyramids
                     goto case "GO";
 
                 case "GO":
-                    page = textFileReader("002.txt");
+                    page = read("002.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("003.txt");
+                    page = read("003.txt");
                     Console.WriteLine(page);
 
                     while (clearToGo == false)
@@ -70,22 +72,22 @@ namespace SecretOfThePyramids
                 case "FOLLOW":
                     Console.Clear();
 
-                    page = textFileReader("013.txt");
+                    page = read("013.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("037.txt");
+                    page = read("037.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("096.txt");
+                    page = read("096.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("087.txt");
+                    page = read("087.txt");
                     Console.WriteLine(page);
 
                     while (clearToGo == false)
@@ -112,22 +114,22 @@ namespace SecretOfThePyramids
                 case "HOTEL":
                     Console.Clear();
 
-                    page = textFileReader("004.txt");
+                    page = read("004.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("032.txt");
+                    page = read("032.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("026.txt");
+                    page = read("026.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("023.txt");
+                    page = read("023.txt");
                     Console.WriteLine(page);
 
                     while (clearToGo == false)
@@ -154,7 +156,7 @@ namespace SecretOfThePyramids
                 case "ACCEPT":
                     Console.Clear();
 
-                    page = textFileReader("073.txt");
+                    page = read("073.txt");
                     Console.WriteLine(page);
 
                     while (clearToGo == false)
@@ -181,12 +183,12 @@ namespace SecretOfThePyramids
                 case "ESCAPE":
                     Console.Clear();
 
-                    page = textFileReader("104.txt");
+                    page = read("104.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("100.txt");
+                    page = read("100.txt");
                     Console.WriteLine(page);
 
                     while (clearToGo == false)
@@ -213,32 +215,32 @@ namespace SecretOfThePyramids
                 case "RISK":
                     Console.Clear();
 
-                    page = textFileReader("017.txt");
+                    page = read("017.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("053.txt");
+                    page = read("053.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("060.txt");
+                    page = read("060.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("069.txt");
+                    page = read("069.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("027.txt");
+                    page = read("027.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("068.txt");
+                    page = read("068.txt");
                     Console.WriteLine(page);
 
                     while (clearToGo == false)
@@ -263,18 +265,26 @@ namespace SecretOfThePyramids
                     break;
 
                 case "POLICE":
+                    Console.Clear();
+
+                    page = read("059.txt");
+                    Console.WriteLine();
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("012.txt");
 
                     break;
 
                 case "JUMP":
                     Console.Clear();
 
-                    page = textFileReader("103.txt");
+                    page = read("103.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = textFileReader("110.txt");
+                    page = read("110.txt");
                     Console.WriteLine(page);
 
                     while (clearToGo == false)
@@ -317,7 +327,7 @@ namespace SecretOfThePyramids
                 case "GET OUT":
                     Console.Clear();
 
-                    page = textFileReader("084.txt");
+                    page = read("084.txt");
                     Console.WriteLine(page);
 
                     while (clearToGo == false)
@@ -346,10 +356,8 @@ namespace SecretOfThePyramids
                     break;
             }
         }
-    
-            
 
-        private static string textFileReader(string textFile)
+        private static string read(string textFile)
         {
             //this is the method that will read each text file
             
@@ -369,147 +377,3 @@ namespace SecretOfThePyramids
     }
 
 }
-
-/*
-
-                        
-                                        if (userValue == "GET OUT")
-                                        {
-                                            clearToGo = true;
-                                            Console.Clear();
-
-                                            page = textFileReader("Page084.txt");
-                                            Console.WriteLine(page);
-                                            Console.ReadLine();
-                                            Console.Clear();
-                                             
-                                        }
-                                        else if (userValue == "CONTINUE")
-                                        {
-                                            clearToGo = true;
-                                            Console.Clear();
-
-                                            page = textFileReader("Page114.txt");
-                                            Console.WriteLine(page);
-                                            Console.ReadLine();
-                                            Console.Clear();
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
-                                            userValue = Console.ReadLine();
-                                            userValue = userValue.ToUpper();
-                                        }
-                                    }
-
-                                }
-                                else if (userValue == "CHANCE")
-                                {
-                                    clearToGo = true;
-                                    Console.Clear();
-
-                                    page = textFileReader("Page084.txt");
-                                    Console.WriteLine(page);
-                                    userValue = Console.ReadLine();
-                                    userValue = userValue.ToUpper();
-                                    
-                                    clearToGo = false;
-
-                                    while (clearToGo == false)
-                                    {
-                                        if (userValue == "RESTART")
-                                        {
-                                            
-                                        }
-                                        else if (userValue == "")
-                                        {
-                                            clearToGo = true;
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine("Are you trying to RESTART? If not, just press ENTER.");
-                                            userValue = Console.ReadLine();
-                                            userValue = userValue.ToUpper();
-                                        }
-                                    }
-                                        
-                                }
-                                else  
-                                {
-                                    Console.WriteLine("I didn't understand that entry. Try typing it in again.");
-                                    userValue = Console.ReadLine();
-                                    userValue = userValue.ToUpper();
-                                }
-                            }
-                        }
-                        else if (userValue == "ESCAPE")
-                        {
-                            clearToGo = true;
-                            Console.Clear();
-
-                            page = textFileReader("Page104.txt");
-                            Console.WriteLine(page);
-                            Console.ReadLine();
-                            Console.Clear();
-
-                            page = textFileReader("Page100.txt");
-                            Console.WriteLine(page);
-                            userValue = Console.ReadLine();
-                            userValue = userValue.ToUpper();
-                            clearToGo = false;
-
-                            while (clearToGo == false)
-                            {
-                                if (userValue == "GO")
-                                {
-                                    clearToGo = true;
-                                    Console.Clear();
-
-                                    page = textFileReader("Page002.txt");
-                                    Console.WriteLine(page);
-                                }
-                                else if (userValue == "NO")
-                                {
-                                    clearToGo = true;
-                                    Console.Clear();
-
-                                    page = textFileReader("Page113.txt");
-                                    Console.WriteLine(page);
-                                }
-                                else
-                                {
-                                    Console.WriteLine("I didn't understand that entry. Try typing it in again.");
-                                    userValue = Console.ReadLine();
-                                    userValue = userValue.ToUpper();
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
-                            userValue = Console.ReadLine();
-                            userValue = userValue.ToUpper();
-                        }
-                    }
-                }
-                else if (userValue == "HOTEL")
-                {
-                    clearToGo = true;
-                    Console.Clear();
-
-                    string page4 = textFileReader("Page004.txt");
-                    Console.WriteLine(page4);
-                    Console.ReadLine();
-                    Console.Clear();
-                }
-                else
-                {
-                    Console.WriteLine("I didn't understand that entry. Try typing it in again.");
-                    userValue = Console.ReadLine();
-                    userValue = userValue.ToUpper();
-                }
-
-            }
-
-        }
-  */
