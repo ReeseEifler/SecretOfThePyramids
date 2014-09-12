@@ -39,7 +39,12 @@ namespace SecretOfThePyramids
                     goto case "GO";
 
                 case "GO":
-                    page = read("002.txt");
+                    page = read("002a.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("002b.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
@@ -273,6 +278,33 @@ namespace SecretOfThePyramids
                     Console.Clear();
 
                     page = read("012.txt");
+                    Console.WriteLine();
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("044.txt");
+                    Console.WriteLine();
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("033.txt");
+                    Console.WriteLine();
+
+                    while (clearToGo == false)
+                    {
+                        if (userValue == "RAID")
+                        {
+                            goto case "RAID";
+                        }
+                        else if (userValue == "TOO DANGEROUS")
+                        {
+                            goto case "TOO DANGEROUS";
+                        }
+                        else
+                        {
+                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                        }
+                    }
 
                     break;
 
@@ -309,6 +341,29 @@ namespace SecretOfThePyramids
                     break;
 
                 case "CHANCE":
+                    Console.Clear();
+
+                    page = read("108.txt");
+                    Console.WriteLine(page);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Console.ReadLine();
+                        userValue = userValue.ToUpper();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Type RESTART to restart or just press ENTER to quit.");
+                        }
+                    }
 
                     break;
 
@@ -354,6 +409,51 @@ namespace SecretOfThePyramids
                 case "CONTINUE":
 
                     break;
+
+                case "RAID":
+                    Console.Clear();
+
+                    page = read("016.txt");
+                    Console.WriteLine();
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("008.txt");
+                    Console.WriteLine();
+
+                    break;
+
+                case "TOO DANGEROUS":
+                    Console.Clear();
+
+                    page = read("014.txt");
+                    Console.WriteLine();
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("106.txt");
+                    Console.WriteLine();
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Console.ReadLine();
+                        userValue = userValue.ToUpper();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Type RESTART to restart or just press ENTER to quit.");
+                        }
+                    }
+
+                    break;
             }
         }
 
@@ -361,16 +461,16 @@ namespace SecretOfThePyramids
         {
             //this is the method that will read each text file
             
-            StreamReader myReader = new StreamReader(textFile);
+            StreamReader reader = new StreamReader(textFile);
             string line = "";
 
             while (line != null)
             {
-                line = myReader.ReadLine();
+                line = reader.ReadLine();
                 if (line != null)
                     Console.WriteLine(line);
             }
-            myReader.Close();
+            reader.Close();
             return line;
         }
     
