@@ -67,7 +67,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                            Console.WriteLine("The choices are in BOLD, so only use that word.");
                         }
                     }
                     
@@ -119,9 +119,38 @@ namespace SecretOfThePyramids
                 case "HOTEL":
                     Console.Clear();
 
-                    page = read("004.txt");
+                    page = read("004a.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("004b.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Console.ReadLine();
+                        userValue = userValue.ToUpper();
+
+                        if (userValue == "CHANGE")
+                        {
+                            goto case "CHANGE";
+                        }
+                        else if (userValue == "ORIGINAL")
+                        {
+                            goto case "ORIGINAL";
+                        }
+                        else
+                        {
+                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                        }
+                    }
+
+                    break;
+
+                case "CHANGE":
                     Console.Clear();
 
                     page = read("032.txt");
@@ -366,6 +395,10 @@ namespace SecretOfThePyramids
                     }
 
                     break;
+                
+                case "ORIGINAL":
+
+                    break;
 
                 case "NO":
 
@@ -418,8 +451,29 @@ namespace SecretOfThePyramids
                     Console.ReadLine();
                     Console.Clear();
 
-                    page = read("008.txt");
+                    page = read("008a.txt");
                     Console.WriteLine();
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("008b.txt");
+                    Console.WriteLine();
+
+                    while (clearToGo == false)
+                    {
+                        if (userValue == "ACCEPT")
+                        {
+                            goto case "ACCEPT2";
+                        }
+                        else if (userValue == "NARROW")
+                        {
+                            goto case "NARROW";
+                        }
+                        else
+                        {
+                            Console.WriteLine("Type RESTART to restart or just press ENTER to quit.");
+                        }
+                    }
 
                     break;
 
@@ -454,6 +508,83 @@ namespace SecretOfThePyramids
                     }
 
                     break;
+
+                case "ACCEPT2":
+                    Console.Clear();
+
+                    page = read("034a.txt");
+                    Console.WriteLine();
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("034b.txt");
+                    Console.WriteLine();
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("035.txt");
+                    Console.WriteLine();
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("065.txt");
+                    Console.WriteLine();
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("079a.txt");
+                    Console.WriteLine();
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("079b.txt");
+                    Console.WriteLine();
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Console.ReadLine();
+                        userValue = userValue.ToUpper();
+
+                        if (userValue == "JOIN")
+                        {
+                            goto case "JOIN";
+                        }
+                        else if (userValue == "TOO FAR OUT")
+                        {
+                            goto case "TOO FAR OUT";
+                        }
+                        else
+                        {
+                            Console.WriteLine("I didn't understand that entry");
+                        }
+                    }
+                    
+                    break;
+
+                case "JOIN":
+                    Console.Clear();
+
+                    page = read("028.txt");
+                    Console.WriteLine();
+
+                    break;
+
+                case "TOO FAR OUT":
+
+                    Console.Clear();
+
+                    page = read("082.txt");
+                    Console.WriteLine();
+
+                    break;
+
+                case "NARROW":
+                    Console.Clear();
+
+                    page = read("074.txt");
+                    Console.WriteLine();
+                    break;
+
             }
         }
 
