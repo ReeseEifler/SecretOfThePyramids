@@ -7,8 +7,39 @@ using System.Threading.Tasks;
 
 namespace SecretOfThePyramids
 {
+
+    public class Page
+    {
+
+        public string Number { get; set; }
+        public Page(string number)
+        {
+            Number = number + ".txt";
+        }
+        public static string read(string textFile)
+        {
+            //this method reads each text file
+
+            StreamReader reader = new StreamReader(textFile);
+            string line = "";
+
+            Console.Clear();
+
+            while (line != null)
+            {
+                line = reader.ReadLine();
+                if (line != null)
+                    Console.WriteLine(line);
+            }
+            Console.ReadLine();
+            reader.Close();
+            return line;
+        }
+    }
+
     class Program
     {
+        
         static void Main(string[] args)
         {
             string caseSwitch = "TITLE";
@@ -19,31 +50,24 @@ namespace SecretOfThePyramids
             switch (caseSwitch)
             {
                 case "TITLE":
-                    Console.Clear();
+                    Page current = new Page("Title");
+                    Page.read(current.Number);
 
-                    page = read("Title.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("Warning");
+                    Page.read(current.Number);
 
-                    page = read("Warning.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = read("001.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("001");
+                    Page.read(current.Number);
 
                     goto case "GO";
 
                 case "GO":
+                    Console.Clear();
                     page = read("002a.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
-                    Console.Clear();
 
+                    Console.Clear();
                     page = read("002b.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
@@ -77,7 +101,12 @@ namespace SecretOfThePyramids
                 case "FOLLOW":
                     Console.Clear();
 
-                    page = read("013.txt");
+                    page = read("013a.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("013b.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
@@ -126,8 +155,6 @@ namespace SecretOfThePyramids
 
                     page = read("004b.txt");
                     Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
 
                     while (clearToGo == false)
                     {
@@ -153,7 +180,12 @@ namespace SecretOfThePyramids
                 case "CHANGE":
                     Console.Clear();
 
-                    page = read("032.txt");
+                    page = read("032a.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("032b.txt");
                     Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
@@ -302,22 +334,22 @@ namespace SecretOfThePyramids
                     Console.Clear();
 
                     page = read("059.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
                     page = read("012.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
                     page = read("044.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
                     page = read("033.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
 
                     while (clearToGo == false)
                     {
@@ -397,6 +429,47 @@ namespace SecretOfThePyramids
                     break;
                 
                 case "ORIGINAL":
+                    Console.Clear();
+
+                    page = read("036a.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("036b.txt");
+                    Console.WriteLine(page);
+                    Console.ReadLine();
+                    Console.Clear();
+
+                    page = read("042.txt");
+                    Console.WriteLine(page);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Console.ReadLine();
+                        userValue = userValue.ToUpper();
+
+                        if (userValue == "PILLOW")
+                        {
+                            goto case "PILLOW";
+                        }
+                        else if (userValue == "UNCLE")
+                        {
+                            goto case "UNCLE";
+                        }
+                        else
+                        {
+                            Console.WriteLine("Try typing that in again.");
+                        }
+                    }
+
+                    break;
+
+                case "PILLOW":
+
+                    break;
+
+                case "UNCLE":
 
                     break;
 
@@ -447,12 +520,12 @@ namespace SecretOfThePyramids
                     Console.Clear();
 
                     page = read("016.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
                     page = read("008a.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
@@ -481,12 +554,12 @@ namespace SecretOfThePyramids
                     Console.Clear();
 
                     page = read("014.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
                     Console.ReadLine();
                     Console.Clear();
 
                     page = read("106.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
 
                     while (clearToGo == false)
                     {
@@ -511,34 +584,33 @@ namespace SecretOfThePyramids
 
                 case "ACCEPT2":
                     Console.Clear();
-
                     page = read("034a.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
                     Console.ReadLine();
-                    Console.Clear();
 
+                    Console.Clear();
                     page = read("034b.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
                     Console.ReadLine();
+                    
                     Console.Clear();
-
                     page = read("035.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
                     Console.ReadLine();
+                    
                     Console.Clear();
-
                     page = read("065.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
                     Console.ReadLine();
+                    
                     Console.Clear();
-
                     page = read("079a.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
                     Console.ReadLine();
+                    
                     Console.Clear();
-
                     page = read("079b.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
 
                     while (clearToGo == false)
                     {
@@ -565,7 +637,7 @@ namespace SecretOfThePyramids
                     Console.Clear();
 
                     page = read("028.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
 
                     break;
 
@@ -574,7 +646,7 @@ namespace SecretOfThePyramids
                     Console.Clear();
 
                     page = read("082.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
 
                     break;
 
@@ -582,7 +654,7 @@ namespace SecretOfThePyramids
                     Console.Clear();
 
                     page = read("074.txt");
-                    Console.WriteLine();
+                    Console.WriteLine(page);
                     break;
 
             }
@@ -606,5 +678,5 @@ namespace SecretOfThePyramids
         }
     
     }
-
+   
 }
