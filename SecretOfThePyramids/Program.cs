@@ -12,10 +12,14 @@ namespace SecretOfThePyramids
     {
 
         public string Number { get; set; }
+
         public Page(string number)
         {
+            // this makes current.Number ininto the string name of the appropriate text file
+
             Number = number + ".txt";
         }
+
         public static string read(string textFile)
         {
             //this method reads each text file
@@ -31,10 +35,29 @@ namespace SecretOfThePyramids
                 if (line != null)
                     Console.WriteLine(line);
             }
-            Console.ReadLine();
+            
             reader.Close();
             return line;
         }
+
+        public static string Question()
+        {
+            //this method returns a user-entered string
+
+            string userValue = Console.ReadLine();
+            userValue = userValue.ToUpper();
+            return userValue;
+        }
+
+        public static void Error()
+        {
+            Console.WriteLine("This is the right error message.  Fix your entry!");
+        }
+        public static void Enter()
+        {
+            Console.ReadLine();
+        }
+        
     }
 
     class Program
@@ -45,41 +68,39 @@ namespace SecretOfThePyramids
             string caseSwitch = "TITLE";
             bool clearToGo = false;
             string userValue = "";
-            string page = "";
 
             switch (caseSwitch)
             {
                 case "TITLE":
                     Page current = new Page("Title");
                     Page.read(current.Number);
+                    Page.Enter();
 
                     current = new Page("Warning");
                     Page.read(current.Number);
+                    Page.Enter();
 
                     current = new Page("001");
                     Page.read(current.Number);
+                    Page.Enter();
 
                     goto case "GO";
 
                 case "GO":
-                    Console.Clear();
-                    page = read("002a.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
+                    current = new Page("002a");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    Console.Clear();
-                    page = read("002b.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("002b");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("003.txt");
-                    Console.WriteLine(page);
+                    current = new Page("003");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
-                        userValue = Console.ReadLine();
-                        userValue = userValue.ToUpper();
+                        userValue = Page.Question();
 
                         if (userValue == "FOLLOW")
                         {
@@ -91,7 +112,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("The choices are in BOLD, so only use that word.");
+                            Page.Error();
                         }
                     }
                     
@@ -99,35 +120,28 @@ namespace SecretOfThePyramids
                     break;
 
                 case "FOLLOW":
-                    Console.Clear();
+                    current = new Page("013a");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("013a.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("013b");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("013b.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("037");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("037.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("096");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("096.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = read("087.txt");
-                    Console.WriteLine(page);
+                    current = new Page("087");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
-                        userValue = Console.ReadLine();
-                        userValue = userValue.ToUpper();
+                        userValue = Page.Question();
 
                         if (userValue == "ACCEPT")
                         {
@@ -139,27 +153,23 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                            Page.Error();
                         }
                     }
                     
                     break;
 
                 case "HOTEL":
-                    Console.Clear();
+                    current = new Page("004a");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("004a.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = read("004b.txt");
-                    Console.WriteLine(page);
+                    current = new Page("004b");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
-                        userValue = Console.ReadLine();
-                        userValue = userValue.ToUpper();
+                        userValue = Page.Question();
 
                         if (userValue == "CHANGE")
                         {
@@ -171,37 +181,31 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                            Page.Error();
                         }
                     }
 
                     break;
 
                 case "CHANGE":
-                    Console.Clear();
+                    current = new Page("032a");
+                    Page.read(current.Number);
+                    Page.Enter();
+                    
+                    current = new Page("032b");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("032a.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("026");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("032b.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = read("026.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = read("023.txt");
-                    Console.WriteLine(page);
+                    current = new Page("023");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
-                        userValue = Console.ReadLine();
-                        userValue = userValue.ToUpper();
+                        userValue = Page.Question();
 
                         if (userValue == "RISK")
                         {
@@ -213,22 +217,19 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                            Page.Error();
                         }
                     }
 
                     break;
 
                 case "ACCEPT":
-                    Console.Clear();
-
-                    page = read("073.txt");
-                    Console.WriteLine(page);
+                    current = new Page("073");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
-                        userValue = Console.ReadLine();
-                        userValue = userValue.ToUpper();
+                        userValue = Page.Question();
 
                         if (userValue == "JUMP")
                         {
@@ -240,27 +241,23 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                            Page.Error();
                         }
                     }
 
                     break;
 
                 case "ESCAPE":
-                    Console.Clear();
+                    current = new Page("104");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("104.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = read("100.txt");
-                    Console.WriteLine(page);
+                    current = new Page("100");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
-                        userValue = Console.ReadLine();
-                        userValue = userValue.ToUpper();
+                        Page.Question();
 
                         if (userValue == "GO")
                         {
@@ -272,47 +269,39 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                            Page.Error();
                         }
                     }
 
                     break;
 
                 case "RISK":
-                    Console.Clear();
+                    current = new Page("017");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("017.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("053");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("053.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("060");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("060.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("069");
+                    Page.read(current.Number);
+                    Page.Enter();
+                    
+                    current = new Page("027");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("069.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = read("027.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = read("068.txt");
-                    Console.WriteLine(page);
+                    current = new Page("068");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
-                        userValue = Console.ReadLine();
-                        userValue = userValue.ToUpper();
+                        Page.Question();
 
                         if (userValue == "TIME")
                         {
@@ -324,32 +313,27 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                            Page.Error();
                         }
                     }
 
                     break;
 
                 case "POLICE":
-                    Console.Clear();
+                    current = new Page("059");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("059.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("012");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("012.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("044");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("044.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = read("033.txt");
-                    Console.WriteLine(page);
+                    current = new Page("033");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
@@ -370,20 +354,16 @@ namespace SecretOfThePyramids
                     break;
 
                 case "JUMP":
-                    Console.Clear();
+                    current = new Page("103");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("103.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = read("110.txt");
-                    Console.WriteLine(page);
+                    current = new Page("110");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
-                        userValue = Console.ReadLine();
-                        userValue = userValue.ToUpper();
+                        userValue = Page.Question();
 
                         if (userValue == "GET OUT")
                         {
@@ -402,15 +382,12 @@ namespace SecretOfThePyramids
                     break;
 
                 case "CHANCE":
-                    Console.Clear();
-
-                    page = read("108.txt");
-                    Console.WriteLine(page);
+                    current = new Page("108");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
-                        userValue = Console.ReadLine();
-                        userValue = userValue.ToUpper();
+                        Page.Question();
 
                         if (userValue == "RESTART")
                         {
@@ -429,25 +406,20 @@ namespace SecretOfThePyramids
                     break;
                 
                 case "ORIGINAL":
-                    Console.Clear();
+                    current = new Page("036a");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("036a.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("036b");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("036b.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = read("042.txt");
-                    Console.WriteLine(page);
+                    current = new Page("042");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
-                        userValue = Console.ReadLine();
-                        userValue = userValue.ToUpper();
+                        userValue = Page.Question();
 
                         if (userValue == "PILLOW")
                         {
@@ -459,7 +431,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("Try typing that in again.");
+                            Page.Error();
                         }
                     }
 
@@ -486,15 +458,16 @@ namespace SecretOfThePyramids
                     break;
 
                 case "GET OUT":
-                    Console.Clear();
+                    current = new Page("084a");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("084.txt");
-                    Console.WriteLine(page);
+                    current = new Page("084b");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
-                        userValue = Console.ReadLine();
-                        userValue = userValue.ToUpper();
+                        userValue = Page.Question();
 
                         if (userValue == "RESTART")
                         {
@@ -517,23 +490,21 @@ namespace SecretOfThePyramids
                     break;
 
                 case "RAID":
-                    Console.Clear();
+                    current = new Page("016");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("016.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
+                    current = new Page("008a");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("008a.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = read("008b.txt");
-                    Console.WriteLine();
+                    current = new Page("008b");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
+                        userValue = Page.Question();
+
                         if (userValue == "ACCEPT")
                         {
                             goto case "ACCEPT2";
@@ -544,27 +515,23 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("Type RESTART to restart or just press ENTER to quit.");
+                            Page.Error();
                         }
                     }
 
                     break;
 
                 case "TOO DANGEROUS":
-                    Console.Clear();
+                    current = new Page("014");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("014.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    page = read("106.txt");
-                    Console.WriteLine(page);
+                    current = new Page("106");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
-                        userValue = Console.ReadLine();
-                        userValue = userValue.ToUpper();
+                        userValue = Page.Question();
 
                         if (userValue == "RESTART")
                         {
@@ -583,39 +550,32 @@ namespace SecretOfThePyramids
                     break;
 
                 case "ACCEPT2":
-                    Console.Clear();
-                    page = read("034a.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
+                    current = new Page("034a");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    Console.Clear();
-                    page = read("034b.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    
-                    Console.Clear();
-                    page = read("035.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    
-                    Console.Clear();
-                    page = read("065.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    
-                    Console.Clear();
-                    page = read("079a.txt");
-                    Console.WriteLine(page);
-                    Console.ReadLine();
-                    
-                    Console.Clear();
-                    page = read("079b.txt");
-                    Console.WriteLine(page);
+                    current = new Page("034b");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("035");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("065");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("079a");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("079b");
+                    Page.read(current.Number);
 
                     while (clearToGo == false)
                     {
-                        userValue = Console.ReadLine();
-                        userValue = userValue.ToUpper();
+                        userValue = Page.Question();
 
                         if (userValue == "JOIN")
                         {
@@ -627,55 +587,57 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("I didn't understand that entry");
+                            Page.Error();
                         }
                     }
                     
                     break;
 
                 case "JOIN":
-                    Console.Clear();
+                    current = new Page("028a");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("028.txt");
-                    Console.WriteLine(page);
+                    current = new Page("028b");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Type RESTART to restart or just press ENTER to quit.");
+                        }
+                    }
 
                     break;
 
                 case "TOO FAR OUT":
-
-                    Console.Clear();
-
-                    page = read("082.txt");
-                    Console.WriteLine(page);
+                    current = new Page("082");
+                    Page.read(current.Number);
+                    Page.Enter();
 
                     break;
 
                 case "NARROW":
-                    Console.Clear();
+                    current = new Page("074");
+                    Page.read(current.Number);
+                    Page.Enter();
 
-                    page = read("074.txt");
-                    Console.WriteLine(page);
                     break;
 
             }
-        }
 
-        private static string read(string textFile)
-        {
-            //this is the method that will read each text file
-            
-            StreamReader reader = new StreamReader(textFile);
-            string line = "";
-
-            while (line != null)
-            {
-                line = reader.ReadLine();
-                if (line != null)
-                    Console.WriteLine(line);
-            }
-            reader.Close();
-            return line;
-        }
+        }    
     
     }
    
