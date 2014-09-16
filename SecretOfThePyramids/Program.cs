@@ -275,7 +275,7 @@ namespace SecretOfThePyramids
 
                     while (clearToGo == false)
                     {
-                        Page.Question();
+                        userValue = Page.Question();
 
                         if (userValue == "GO")
                         {
@@ -760,6 +760,28 @@ namespace SecretOfThePyramids
 
                     current = new Page("076");
                     Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("077");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
 
                     break;
 
@@ -767,18 +789,111 @@ namespace SecretOfThePyramids
 
                     current = new Page("039");
                     Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("056");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
 
                     break;
 
                 case "NO":
 
+                    current = new Page("113");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
+
                     break;
 
                 case "TIME":
 
+                    current = new Page("011");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("075");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
+
                     break;
 
                 case "ESCAPE2":
+
+                    current = new Page("111");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("112");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
 
                     break;
 
@@ -811,6 +926,31 @@ namespace SecretOfThePyramids
                     break;
 
                 case "CONTINUE":
+
+                    current = new Page("114");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("116");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
 
                     break;
 
@@ -951,12 +1091,335 @@ namespace SecretOfThePyramids
                     Page.read(current.Number);
                     Page.Enter();
 
+                    current = new Page("083");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
+
                     break;
 
                 case "NARROW":
                     current = new Page("074");
                     Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "TELEPHONE")
+                        {
+                            goto case "TELEPHONE";
+                        }
+                        else if (userValue == "CAR")
+                        {
+                            goto case "CAR";
+                        }
+                        else
+                        {
+                            Page.Error("firstError");
+                        }
+                    }
+
+                    break;
+
+                case "TELEPHONE":
+
+                    current = new Page("054");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
+
+                    break;
+
+                case "CAR":
+
+                    current = new Page("030");
+                    Page.read(current.Number);
                     Page.Enter();
+
+                    current = new Page("005");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("031");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RAID")
+                        {
+                            goto case "RAID2";
+                        }
+                        else if (userValue == "VILLA")
+                        {
+                            goto case "VILLA";
+                        }
+                        else
+                        {
+                            Page.Error("firstError");
+                        }
+                    }
+
+                    break;
+
+                case "RAID2":
+
+                    current = new Page("080");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("081");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "KEEP FLYING")
+                        {
+                            goto case "KEEP FLYING";
+                        }
+                        else if (userValue == "LAND")
+                        {
+                            goto case "LAND";
+                        }
+                        else
+                        {
+                            Page.Error("firstError");
+                        }
+                    }
+
+                    break;
+
+                case "KEEP FLYING":
+                    current = new Page("092");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
+
+                    break;
+
+                case "LAND":
+
+                    current = new Page("045");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("046");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("085");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "STAY")
+                        {
+                            goto case "STAY3";
+                        }
+                        else if (userValue == "ACROSS THE DESERT")
+                        {
+                            goto case "ACROSS THE DESERT";
+                        }
+                        else
+                        {
+                            Page.Error("firstError");
+                        }
+                    }
+
+                    break;
+
+                case "STAY3":
+
+                    current = new Page("101");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
+
+                    break;
+
+                case "ACROSS THE DESERT":
+
+                    current = new Page("093");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("072");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("055");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "INVESTIGATE")
+                        {
+                            goto case "INVESTIGATE";
+                        }
+                        else if (userValue == "SLIP AWAY")
+                        {
+                            goto case "SLIP AWAY";
+                        }
+                        else
+                        {
+                            Page.Error("firstError");
+                        }
+                    }
+
+                    break;
+
+                case "INVESTIGATE":
+
+                    current = new Page("038");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
+
+                    break;
+
+                case "SLIP AWAY":
+
+                    current = new Page("058");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("099");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
+
+                    break;
+
+                case "VILLA":
+
+                    current = new Page("078");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("020");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
 
                     break;
 
