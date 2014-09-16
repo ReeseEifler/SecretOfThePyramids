@@ -49,8 +49,22 @@ namespace SecretOfThePyramids
             return userValue;
         }
 
-        public static void Error(int errorNumber)
+        public static void Error(string errorName)
         {
+            int errorNumber;
+            if (errorName == "restart")
+            {
+                errorNumber = 0; 
+            }
+            else if (errorName == "firstError")
+            {
+                errorNumber = 1;
+            }
+            else
+            {
+                errorNumber = 1;
+            }
+
             string[] errorMessages = new string[2];
 
             errorMessages[0] = "Type RESTART to restart or just press ENTER to quit.";
@@ -116,7 +130,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error(1);
+                            Page.Error("firstError");
                         }
                     }
                     
@@ -157,7 +171,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error(1);
+                            Page.Error("firstError");
                         }
                     }
                     
@@ -185,7 +199,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error(1);
+                            Page.Error("firstError");
                         }
                     }
 
@@ -221,7 +235,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error(1);
+                            Page.Error("firstError");
                         }
                     }
 
@@ -245,7 +259,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error(1);
+                            Page.Error("firstError");
                         }
                     }
 
@@ -273,7 +287,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error(1);
+                            Page.Error("firstError");
                         }
                     }
 
@@ -305,7 +319,7 @@ namespace SecretOfThePyramids
 
                     while (clearToGo == false)
                     {
-                        Page.Question();
+                        userValue = Page.Question();
 
                         if (userValue == "TIME")
                         {
@@ -317,7 +331,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error(1);
+                            Page.Error("firstError");
                         }
                     }
 
@@ -341,6 +355,8 @@ namespace SecretOfThePyramids
 
                     while (clearToGo == false)
                     {
+                        userValue = Page.Question();
+
                         if (userValue == "RAID")
                         {
                             goto case "RAID";
@@ -351,7 +367,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                            Page.Error("firstError");
                         }
                     }
 
@@ -379,7 +395,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("I didn't understand that entry. Try typing it in again.");
+                            Page.Error("firstError");
                         }
                     }
 
@@ -391,7 +407,7 @@ namespace SecretOfThePyramids
 
                     while (clearToGo == false)
                     {
-                        Page.Question();
+                        userValue = Page.Question();
 
                         if (userValue == "RESTART")
                         {
@@ -403,7 +419,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("Type RESTART to restart or just press ENTER to quit.");
+                            Page.Error("restart");
                         }
                     }
 
@@ -435,7 +451,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error(1);
+                            Page.Error("firstError");
                         }
                     }
 
@@ -443,9 +459,314 @@ namespace SecretOfThePyramids
 
                 case "PILLOW":
 
+                    current = new Page("029");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "GO HOME")
+                        {
+                            goto case "GO HOME";
+                        }
+                        else if (userValue == "STAY")
+                        {
+                            goto case "STAY";
+                        }
+                        else
+                        {
+                            Page.Error("firstError");
+                        }
+                    } 
+
                     break;
 
                 case "UNCLE":
+
+                    current = new Page("088");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("094");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "PYRAMID")
+                        {
+                            goto case "PYRAMID";
+                        }
+                        else if (userValue == "TRAP")
+                        {
+                            goto case "TRAP";
+                        }
+                        else
+                        {
+                            Page.Error("firstError");
+                        }
+                    }
+
+                    break;
+
+                case "PYRAMID":
+
+                    current = new Page("067");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
+
+                    break;
+
+                case "TRAP":
+
+                    current = new Page("109");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
+
+                    break;
+
+                case "GO HOME":
+
+                    current = new Page("089");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
+
+                    break;
+
+                case "STAY":
+
+                    current = new Page("007");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("062");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("040");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("070");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "CONVINCE")
+                        {
+                            goto case "CONVINCE";
+                        }
+                        else if (userValue == "AGREE")
+                        {
+                            goto case "AGREE2";
+                        }
+                        else
+                        {
+                            Page.Error("firstError");
+                        }
+                    }
+
+
+                    break;
+
+                case "CONVINCE":
+
+                    current = new Page("024");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("021");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "INSIST")
+                        {
+                            goto case "INSIST";
+                        }
+                        else if (userValue == "STAY BEHIND")
+                        {
+                            goto case "STAY BEHIND";
+                        }
+                        else
+                        {
+                            Page.Error("firstError");
+                        }
+                    }
+
+                    break;
+
+                case "AGREE2":
+
+                    current = new Page("090");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
+
+                    break;
+
+                case "INSIST":
+
+                    current = new Page("097");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("018");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("019");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("050");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("051");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "STAY")
+                        {
+                            goto case "STAY2";
+                        }
+                        else if (userValue == "LEAVE")
+                        {
+                            goto case "LEAVE";
+                        }
+                        else
+                        {
+                            Page.Error("firstError");
+                        }
+                    }
+
+                    break;
+
+                case "STAY BEHIND":
+
+                    current = new Page("049");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("010");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("063");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("066");
+                    Page.read(current.Number);
+
+                    while (clearToGo == false)
+                    {
+                        userValue = Page.Question();
+
+                        if (userValue == "RESTART")
+                        {
+                            goto case "TITLE";
+                        }
+                        else if (userValue == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Page.Error("restart");
+                        }
+                    }
+
+                    break;
+
+                case "STAY2":
+
+                    current = new Page("076");
+                    Page.read(current.Number);
+
+                    break;
+
+                case "LEAVE":
+
+                    current = new Page("039");
+                    Page.read(current.Number);
 
                     break;
 
@@ -483,7 +804,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error(0);
+                            Page.Error("restart");
                         }
                     }
 
@@ -519,7 +840,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error(1);
+                            Page.Error("firstError");
                         }
                     }
 
@@ -547,7 +868,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error(0);
+                            Page.Error("restart");
                         }
                     }
 
@@ -591,7 +912,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error(1);
+                            Page.Error("firstError");
                         }
                     }
                     
@@ -619,7 +940,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error(0);
+                            Page.Error("restart");
                         }
                     }
 
