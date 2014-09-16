@@ -49,9 +49,13 @@ namespace SecretOfThePyramids
             return userValue;
         }
 
-        public static void Error()
+        public static void Error(int errorNumber)
         {
-            Console.WriteLine("This is the right error message.  Fix your entry!");
+            string[] errorMessages = new string[2];
+
+            errorMessages[0] = "Type RESTART to restart or just press ENTER to quit.";
+            errorMessages[1] = "I didn't understand that entry. Try typing it in again.";
+            Console.WriteLine(errorMessages[errorNumber]);
         }
         public static void Enter()
         {
@@ -112,7 +116,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error();
+                            Page.Error(1);
                         }
                     }
                     
@@ -153,7 +157,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error();
+                            Page.Error(1);
                         }
                     }
                     
@@ -181,7 +185,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error();
+                            Page.Error(1);
                         }
                     }
 
@@ -217,7 +221,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error();
+                            Page.Error(1);
                         }
                     }
 
@@ -241,7 +245,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error();
+                            Page.Error(1);
                         }
                     }
 
@@ -269,7 +273,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error();
+                            Page.Error(1);
                         }
                     }
 
@@ -313,7 +317,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error();
+                            Page.Error(1);
                         }
                     }
 
@@ -431,7 +435,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error();
+                            Page.Error(1);
                         }
                     }
 
@@ -479,7 +483,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("Type RESTART to restart or just press ENTER to quit.");
+                            Page.Error(0);
                         }
                     }
 
@@ -515,7 +519,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error();
+                            Page.Error(1);
                         }
                     }
 
@@ -543,7 +547,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("Type RESTART to restart or just press ENTER to quit.");
+                            Page.Error(0);
                         }
                     }
 
@@ -587,7 +591,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Page.Error();
+                            Page.Error(1);
                         }
                     }
                     
@@ -615,7 +619,7 @@ namespace SecretOfThePyramids
                         }
                         else
                         {
-                            Console.WriteLine("Type RESTART to restart or just press ENTER to quit.");
+                            Page.Error(0);
                         }
                     }
 
