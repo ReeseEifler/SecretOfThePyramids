@@ -67,7 +67,7 @@ namespace SecretOfThePyramids
 
             string[] errorMessages = new string[2];
 
-            errorMessages[0] = "Type RESTART to restart or just press ENTER to quit.";
+            errorMessages[0] = "Type RESTART or QUIT.";
             errorMessages[1] = "I didn't understand that entry. Try typing it in again.";
             Console.WriteLine(errorMessages[errorNumber]);
         }
@@ -413,7 +413,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -524,7 +524,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -549,7 +549,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -574,7 +574,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -641,9 +641,9 @@ namespace SecretOfThePyramids
                         {
                             goto case "INSIST";
                         }
-                        else if (userValue == "STAY BEHIND")
+                        else if (userValue == "STAY")
                         {
-                            goto case "STAY BEHIND";
+                            goto case "STAY4";
                         }
                         else
                         {
@@ -666,7 +666,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -719,7 +719,7 @@ namespace SecretOfThePyramids
 
                     break;
 
-                case "STAY BEHIND":
+                case "STAY4":
 
                     current = new Page("049");
                     Page.read(current.Number);
@@ -744,7 +744,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -773,7 +773,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -802,7 +802,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -827,7 +827,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -841,7 +841,11 @@ namespace SecretOfThePyramids
 
                 case "TIME":
 
-                    current = new Page("011");
+                    current = new Page("011a");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("011b");
                     Page.read(current.Number);
                     Page.Enter();
 
@@ -856,7 +860,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -885,7 +889,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -913,7 +917,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -942,7 +946,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -1002,7 +1006,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -1074,7 +1078,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -1102,7 +1106,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -1151,7 +1155,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -1237,7 +1241,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -1295,7 +1299,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -1353,7 +1357,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -1382,7 +1386,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
@@ -1411,7 +1415,7 @@ namespace SecretOfThePyramids
                         {
                             goto case "TITLE";
                         }
-                        else if (userValue == "")
+                        else if (userValue == "QUIT")
                         {
                             break;
                         }
