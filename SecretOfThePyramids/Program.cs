@@ -218,7 +218,11 @@ namespace SecretOfThePyramids
                     Page.read(current.Number);
                     Page.Enter();
 
-                    current = new Page("023");
+                    current = new Page("023a");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("023b");
                     Page.read(current.Number);
 
                     while (clearToGo == false)
@@ -346,11 +350,19 @@ namespace SecretOfThePyramids
                     Page.read(current.Number);
                     Page.Enter();
 
-                    current = new Page("044");
+                    current = new Page("044a");
                     Page.read(current.Number);
                     Page.Enter();
 
-                    current = new Page("033");
+                    current = new Page("044b");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("033a");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("033b");
                     Page.read(current.Number);
 
                     while (clearToGo == false)
@@ -459,7 +471,11 @@ namespace SecretOfThePyramids
 
                 case "PILLOW":
 
-                    current = new Page("029");
+                    current = new Page("029a");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("029b");
                     Page.read(current.Number);
 
                     while (clearToGo == false)
@@ -692,7 +708,11 @@ namespace SecretOfThePyramids
                     Page.read(current.Number);
                     Page.Enter();
 
-                    current = new Page("050");
+                    current = new Page("050a");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("050b");
                     Page.read(current.Number);
                     Page.Enter();
 
@@ -1259,7 +1279,11 @@ namespace SecretOfThePyramids
                     Page.read(current.Number);
                     Page.Enter();
 
-                    current = new Page("046");
+                    current = new Page("046a");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("046b");
                     Page.read(current.Number);
                     Page.Enter();
 
@@ -1346,7 +1370,11 @@ namespace SecretOfThePyramids
 
                 case "INVESTIGATE":
 
-                    current = new Page("038");
+                    current = new Page("038a");
+                    Page.read(current.Number);
+                    Page.Enter();
+
+                    current = new Page("038b");
                     Page.read(current.Number);
 
                     while (clearToGo == false)
