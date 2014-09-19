@@ -86,6 +86,7 @@ namespace SecretOfThePyramids
             string caseSwitch = "TITLE";
             bool clearToGo = false;
             string userValue = "";
+            bool noErrorYet = true;
 
             switch (caseSwitch)
             {
@@ -122,15 +123,30 @@ namespace SecretOfThePyramids
 
                         if (userValue == "FOLLOW")
                         {
+                            noErrorYet = true;
                             goto case "FOLLOW";
                         }
                         else if (userValue == "HOTEL")
                         {
+                            noErrorYet = true;
                             goto case "HOTEL";
                         }
                         else
                         {
-                            Page.Error("firstError");
+                            if (noErrorYet == true)
+                            {
+                                Console.Clear();
+                                Page.read(current.Number);
+                                Page.Error("firstError");
+                                noErrorYet = false;
+
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Page.read(current.Number);
+                                Page.Error("firstError");
+                            }
                         }
                     }
                     
