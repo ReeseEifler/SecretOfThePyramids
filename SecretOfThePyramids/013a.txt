@@ -18,4 +18,4 @@ does manage to keep less than a block behind the other car.
 
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                            (Press ENTER)
+                                 (Press ENTER)

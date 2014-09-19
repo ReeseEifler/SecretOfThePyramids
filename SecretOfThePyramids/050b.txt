@@ -1,4 +1,4 @@
-﻿xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+﻿xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   The picture blurs. A kind of fog drifts over the screen and then clears 
 away. The pyramid is completed. But what a pyramid! It appears to be early
 morning. The top third of the pyramid is sheathed in gold, polished to a 
@@ -15,5 +15,5 @@ realize that the triangular viewscreen is gradually growing larger.
 other three walls vanish completely. The glowing floor remains, but you seem 
 to be standing in ancient Egypt!
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                                  (Press ENTER)

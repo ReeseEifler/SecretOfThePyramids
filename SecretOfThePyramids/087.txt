@@ -1,34 +1,36 @@
 ﻿xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-You wake up to find yourself lying on an iron cot in a small storeroom. You sit
-up and try to move, and find that one ankle is chained to the bed.
+  You wake up to find yourself lying on an iron cot in a small storeroom. You 
+sit up and try to move, and find that one ankle is chained to the bed.
 
-Gradually your eyes become accustomed to the darkness. There is a small window 
-high above you on the wall, and through it you can see a crescent moon shining.
-You can hear the beat of the music you heard in the cafe. You sit there in the 
-half-darkness trying to figure out how to pick the ancient-looking padlock that
-secures the chain on your ankle.
+  Gradually your eyes become accustomed to the darkness. There is a small 
+window high above you on the wall, and through it you can see a crescent moon 
+shining. You can hear the beat of the music you heard in the cafe. You sit 
+there in the half-darkness trying to figure out how to pick the ancient-looking 
+padlock that secures the chain on your ankle.
 
-The door to the room opens slightly, throwing a shaft of light inside. It's 
+  The door to the room opens slightly, throwing a shaft of light inside. It's 
 bright enough for you to recognize the dancer from the cafe. Quietly she closes 
 the door and whispers in your ear.
 
-"My name is Serena. I will help you escape."
+  "My name is Serena. I will help you escape."
 
-She inserts a long, thin bar into the padlock on your ankle. The lock snaps 
+  She inserts a long, thin bar into the padlock on your ankle. The lock snaps 
 open.
 
-"Here, quickly!" she says. "Stand on my shoulders and climb out the window. It 
-leads to a rooftop. I will pull myself up and follow."
+  "Here, quickly!" she says. "Stand on my shoulders and climb out the window. 
+It leads to a rooftop. I will pull myself up and follow."
 
-You want to go with her, but you have no idea who this woman is and where she 
+  You want to go with her, but you have no idea who this woman is and where she 
 might be leading you. She could be getting you into a worse situation. You 
 look at the window high up on the wall and then at the open door in front of 
 you.
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-                 Do you decide to ACCEPT Serena's help?
-
-                                  OR
-        
-           You don't trust her, and try to ESCAPE through the door?
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                                                          xxxxx
+                                                                     xxxxxxxxxx
+You decide to ACCEPT Serena's help?                        xxxxxxxxxxxxxxxxxxxx
+                                       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxx                         OR                 
+xxxxxxxxxx                         You don't trust her
+xxxxxxxxxxxxxxxxxxxx                      and try to ESCAPE through the door?
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx   
