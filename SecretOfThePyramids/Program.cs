@@ -16,11 +16,11 @@ namespace SecretOfThePyramids
         public Page(string number)
         {
             // this makes current.Number ininto the string name of the appropriate text file
-
+            
             Number = number + ".txt";
         }
 
-        public static string read(string textFile)
+        public static string Reader (string textFile)
         {
             //this method reads each text file
 
@@ -75,6 +75,156 @@ namespace SecretOfThePyramids
         {
             Console.ReadLine();
         }
+        public static void Read(string page)
+        {
+            Page current = new Page(page);
+            Page.Reader(current.Number);
+        }
+        public static string Choice(string page, string choice1, string choice2)
+        {
+            bool clearToGo = false;
+            Page current = new Page(page);
+            Page.Reader(current.Number);
+            string choice = "";
+
+            while (clearToGo == false)
+            {
+                bool noErrorYet = true;
+                string userValue = Page.Question();
+                
+
+                if (userValue == choice1)
+                {
+                    noErrorYet = true;
+                    choice = choice1;
+                    clearToGo = true;
+                }
+                else if (userValue == choice2)
+                {
+                    noErrorYet = true;
+                    choice = choice2;
+                    clearToGo = true;
+                }
+                else
+                {
+                    if (noErrorYet == true)
+                    {
+                        Console.Clear();
+                        Page.Reader(current.Number);
+                        Page.Error("firstError");
+                        noErrorYet = false;
+
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Page.Reader(current.Number);
+                        Page.Error("firstError");
+                    }
+                }
+            }
+
+            return choice;
+
+        }
+        public static string ChooseCase(string caseSwitch)
+        {
+            
+            switch (caseSwitch)
+            {
+                case "TITLE":
+                    Page.Read("Title");
+                    Page.Enter();
+                    Page.Read("Warning");
+                    Page.Enter();
+                    Page.Read("001");
+                    Page.Enter();
+                    caseSwitch = "GO";
+                    break;
+
+                case "GO":
+                    Page.Read("002a");
+                    Page.Enter();
+                    Page.Read("002b");
+                    Page.Enter();
+                    caseSwitch = Page.Choice("003S", "FOLLOW", "HOTEL");
+                    break;
+
+                case "FOLLOW":
+                    Page.Read("013a");
+                    Page.Enter();
+                    Page.Read("013b");
+                    Page.Enter();
+                    Page.Read("037");
+                    Page.Enter();
+                    Page.Read("096");
+                    Page.Enter();
+                    Page.Read("087a");
+                    Page.Enter();
+                    caseSwitch = Page.Choice("087bS", "ACCEPT", "ESCAPE");
+                    break;
+
+                case "HOTEL":
+                    Page.Read("004a");
+                    Page.Enter();
+                    caseSwitch = Page.Choice("004bS", "CHANGE", "ORIGINAL");
+                    break;
+
+                case "ACCEPT":
+                    Page.Read("073a");
+                    Page.Enter();
+                    Page.Read("073bS");
+                    caseSwitch = Page.Choice("073bS", "JUMP", "CHANCE");
+                    break;
+
+                case "ESCAPE":
+                    Page.Read("104a");
+                    Page.Enter();
+                    Page.Read("104b");
+                    Page.Enter();
+                    Page.Read("100a");
+                    Page.Enter();
+                    caseSwitch = Page.Choice("100bS", "GO", "NO");
+                    break;
+
+                case "CHANGE":
+                    Page.Read("032a");
+                    Page.Enter();
+                    Page.Read("032b");
+                    Page.Enter();
+                    Page.Read("026");
+                    Page.Enter();
+                    Page.Read("023a");
+                    Page.Enter();
+                    caseSwitch = Page.Choice("023bS", "RISK", "POLICE");
+                    break;
+
+                case "ORIGINAL":
+                    Page.Read("036a");
+                    Page.Enter();
+                    Page.Read("036b");
+                    Page.Enter();
+                    caseSwitch = Page.Choice("042S", "PILLOW", "UNCLE");
+                    break;
+
+                case "JUMP":
+                    Page.Read("103");
+                    Page.Enter();
+                    Page.Read("110a");
+                    Page.Enter();
+                    Page.Read("110bS");
+                    caseSwitch = Page.Choice("110bS", "GET OUT", "CONTINUE");
+                    break;
+
+                case "CHANCE":
+                    Page.Read("108a");
+                    Page.Enter();
+                    caseSwitch = Page.Choice("108bR", "RESTART", "QUIT");
+                    break;
+            }
+
+            return caseSwitch;
+        }
         
     }
 
@@ -84,230 +234,37 @@ namespace SecretOfThePyramids
         static void Main(string[] args)
         {
             string caseSwitch = "TITLE";
-            bool clearToGo = false;
-            string userValue = "";
-            bool noErrorYet = true;
 
+            while (caseSwitch != "QUIT")
+            {
+                if ((caseSwitch != "RESTART") && (caseSwitch != "QUIT"))
+                {
+                    caseSwitch = Page.ChooseCase(caseSwitch);
+                }
+                else if (caseSwitch == "RESTART")
+                {
+                    caseSwitch = Page.ChooseCase("TITLE");
+                }
+                else
+                {
+                    Console.WriteLine("Thanks for playing!");
+                }
+                
+            }
+            /*
             switch (caseSwitch)
             {
-                case "TITLE":
-                    Page current = new Page("Title");
-                    Page.read(current.Number);
-                    Page.Enter();
+                
 
-                    current = new Page("Warning");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("001");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    goto case "GO";
-
-                case "GO":
-                    current = new Page("002a");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("002b");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("003S");
-                    Page.read(current.Number);
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "FOLLOW")
-                        {
-                            noErrorYet = true;
-                            goto case "FOLLOW";
-                        }
-                        else if (userValue == "HOTEL")
-                        {
-                            noErrorYet = true;
-                            goto case "HOTEL";
-                        }
-                        else
-                        {
-                            if (noErrorYet == true)
-                            {
-                                Console.Clear();
-                                Page.read(current.Number);
-                                Page.Error("firstError");
-                                noErrorYet = false;
-
-                            }
-                            else
-                            {
-                                Console.Clear();
-                                Page.read(current.Number);
-                                Page.Error("firstError");
-                            }
-                        }
-                    }
-                    
-                    
-                    break;
-
-                case "FOLLOW":
-                    current = new Page("013a");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("013b");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("037");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("096");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("087a");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("087bS");
-                    Page.read(current.Number);
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "ACCEPT")
-                        {
-                            goto case "ACCEPT";
-                        }
-                        else if (userValue == "ESCAPE")
-                        {
-                            goto case "ESCAPE";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-                    
-                    break;
-
-                case "HOTEL":
-                    current = new Page("004a");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("004bS");
-                    Page.read(current.Number);
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "CHANGE")
-                        {
-                            goto case "CHANGE";
-                        }
-                        else if (userValue == "ORIGINAL")
-                        {
-                            goto case "ORIGINAL";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                case "CHANGE":
-                    current = new Page("032a");
-                    Page.read(current.Number);
-                    Page.Enter();
-                    
-                    current = new Page("032b");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("026");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("023a");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("023bS");
-                    Page.read(current.Number);
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RISK")
-                        {
-                            goto case "RISK";
-                        }
-                        else if (userValue == "POLICE")
-                        {
-                            goto case "POLICE";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                case "ACCEPT":
-                    current = new Page("073a");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("073bS");
-                    Page.read(current.Number);
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "JUMP")
-                        {
-                            goto case "JUMP";
-                        }
-                        else if (userValue == "CHANCE")
-                        {
-                            goto case "CHANCE";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
 
                 case "ESCAPE":
-                    current = new Page("104a");
-                    Page.read(current.Number);
+                    Page.Read("104a");
                     Page.Enter();
-
-                    current = new Page("104b");
-                    Page.read(current.Number);
+                    Page.Read("104b");
                     Page.Enter();
-
-                    current = new Page("100a");
-                    Page.read(current.Number);
+                    Page.Read("100a");
                     Page.Enter();
-
-                    current = new Page("100bS");
-                    Page.read(current.Number);
+                    Page.Read("100bS");
 
                     while (clearToGo == false)
                     {
@@ -330,36 +287,21 @@ namespace SecretOfThePyramids
                     break;
 
                 case "RISK":
-                    current = new Page("017");
-                    Page.read(current.Number);
+                    Page.Read("017");
                     Page.Enter();
-
-                    current = new Page("053");
-                    Page.read(current.Number);
+                    Page.Read("053");
                     Page.Enter();
-
-                    current = new Page("060");
-                    Page.read(current.Number);
+                    Page.Read("060");
                     Page.Enter();
-
-                    current = new Page("069a");
-                    Page.read(current.Number);
+                    Page.Read("069a");
                     Page.Enter();
-
-                    current = new Page("069b");
-                    Page.read(current.Number);
+                    Page.Read("069b");
                     Page.Enter();
-                    
-                    current = new Page("027");
-                    Page.read(current.Number);
+                    Page.Read("027");
                     Page.Enter();
-
-                    current = new Page("068a");
-                    Page.read(current.Number);
-                     Page.Enter();
-
-                    current = new Page("068bS");
-                    Page.read(current.Number);
+                    Page.Read("068a");
+                    Page.Enter();
+                    Page.Read("068bS");
 
                     while (clearToGo == false)
                     {
@@ -382,28 +324,17 @@ namespace SecretOfThePyramids
                     break;
 
                 case "POLICE":
-                    current = new Page("059");
-                    Page.read(current.Number);
+                    Page.Read("059");
                     Page.Enter();
-
-                    current = new Page("012");
-                    Page.read(current.Number);
+                    Page.Read("012");
                     Page.Enter();
-
-                    current = new Page("044a");
-                    Page.read(current.Number);
+                    Page.Read("044a");
                     Page.Enter();
-
-                    current = new Page("044b");
-                    Page.read(current.Number);
+                    Page.Read("044b");
                     Page.Enter();
-
-                    current = new Page("033a");
-                    Page.read(current.Number);
+                    Page.Read("033a");
                     Page.Enter();
-
-                    current = new Page("033bS");
-                    Page.read(current.Number);
+                    Page.Read("033bS");
 
                     while (clearToGo == false)
                     {
@@ -425,45 +356,12 @@ namespace SecretOfThePyramids
 
                     break;
 
-                case "JUMP":
-                    current = new Page("103");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("110a");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("110bS");
-                    Page.read(current.Number);
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "GET OUT")
-                        {
-                            goto case "GET OUT";
-                        }
-                        else if (userValue == "CONTINUE")
-                        {
-                            goto case "CONTINUE";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
+                
 
                 case "CHANCE":
-                    current = new Page("108a");
-                    Page.read(current.Number);
+                    Page.Read("108a");
                     Page.Enter();
-
-                    current = new Page("108bR");
-                    Page.read(current.Number);
+                    Page.Read("108bR");
 
                     while (clearToGo == false)
                     {
@@ -485,46 +383,12 @@ namespace SecretOfThePyramids
 
                     break;
                 
-                case "ORIGINAL":
-                    current = new Page("036a");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("036b");
-                    Page.read(current.Number);
-                    Page.Enter();
-
-                    current = new Page("042S");
-                    Page.read(current.Number);
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "PILLOW")
-                        {
-                            goto case "PILLOW";
-                        }
-                        else if (userValue == "UNCLE")
-                        {
-                            goto case "UNCLE";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
+                
 
                 case "PILLOW":
-
-                    current = new Page("029a");
-                    Page.read(current.Number);
+                    Page.Read("029a");
                     Page.Enter();
-
-                    current = new Page("029bS");
-                    Page.read(current.Number);
+                    Page.Read("029bS");
 
                     while (clearToGo == false)
                     {
@@ -547,21 +411,13 @@ namespace SecretOfThePyramids
                     break;
 
                 case "UNCLE":
-
-                    current = new Page("088a");
-                    Page.read(current.Number);
+                    Page.Read("088a");
                     Page.Enter();
-
-                    current = new Page("088b");
-                    Page.read(current.Number);
+                    Page.Read("088b");
                     Page.Enter();
-
-                    current = new Page("094a");
-                    Page.read(current.Number);
+                    Page.Read("094a");
                     Page.Enter();
-
-                    current = new Page("094bS");
-                    Page.read(current.Number);
+                    Page.Read("094bS");
 
                     while (clearToGo == false)
                     {
@@ -584,13 +440,9 @@ namespace SecretOfThePyramids
                     break;
 
                 case "PYRAMID":
-
-                    current = new Page("067a");
-                    Page.read(current.Number);
+                    Page.Read("067a");
                     Page.Enter();
-
-                    current = new Page("067bR");
-                    Page.read(current.Number);
+                    Page.Read("067bR");
 
                     while (clearToGo == false)
                     {
@@ -613,13 +465,9 @@ namespace SecretOfThePyramids
                     break;
 
                 case "TRAP":
-
-                    current = new Page("109a");
-                    Page.read(current.Number);
+                    Page.Read("109a");
                     Page.Enter();
-
-                    current = new Page("109bR");
-                    Page.read(current.Number);
+                    Page.Read("109bR");
 
                     while (clearToGo == false)
                     {
@@ -642,9 +490,7 @@ namespace SecretOfThePyramids
                     break;
 
                 case "GO HOME":
-
-                    current = new Page("089R");
-                    Page.read(current.Number);
+                    Page.Read("089R");
 
                     while (clearToGo == false)
                     {
@@ -667,25 +513,15 @@ namespace SecretOfThePyramids
                     break;
 
                 case "STAY":
-
-                    current = new Page("007");
-                    Page.read(current.Number);
+                    Page.Read("007");
                     Page.Enter();
-
-                    current = new Page("062");
-                    Page.read(current.Number);
+                    Page.Read("062");
                     Page.Enter();
-
-                    current = new Page("040");
-                    Page.read(current.Number);
+                    Page.Read("040");
                     Page.Enter();
-
-                    current = new Page("070a");
-                    Page.read(current.Number);
+                    Page.Read("070a");
                     Page.Enter();
-
-                    current = new Page("070bS");
-                    Page.read(current.Number);
+                    Page.Read("070bS");
 
                     while (clearToGo == false)
                     {
@@ -709,13 +545,9 @@ namespace SecretOfThePyramids
                     break;
 
                 case "CONVINCE":
-
-                    current = new Page("024");
-                    Page.read(current.Number);
+                    Page.Read("024");
                     Page.Enter();
-
-                    current = new Page("021S");
-                    Page.read(current.Number);
+                    Page.Read("021S");
 
                     while (clearToGo == false)
                     {
@@ -738,13 +570,9 @@ namespace SecretOfThePyramids
                     break;
 
                 case "AGREE2":
-
-                    current = new Page("090a");
-                    Page.read(current.Number);
+                    Page.Read("090a");
                     Page.Enter();
-
-                    current = new Page("090bR");
-                    Page.read(current.Number);
+                    Page.Read("090bR");
 
                     while (clearToGo == false)
                     {
@@ -767,33 +595,19 @@ namespace SecretOfThePyramids
                     break;
 
                 case "INSIST":
-
-                    current = new Page("097a");
-                    Page.read(current.Number);
+                    Page.Read("097a");
                     Page.Enter();
-
-                    current = new Page("097b");
-                    Page.read(current.Number);
+                    Page.Read("097b");
                     Page.Enter();
-
-                    current = new Page("018");
-                    Page.read(current.Number);
+                    Page.Read("018");
                     Page.Enter();
-
-                    current = new Page("019");
-                    Page.read(current.Number);
+                    Page.Read("019");
                     Page.Enter();
-
-                    current = new Page("050a");
-                    Page.read(current.Number);
+                    Page.Read("050a");
                     Page.Enter();
-
-                    current = new Page("050b");
-                    Page.read(current.Number);
+                    Page.Read("050b");
                     Page.Enter();
-
-                    current = new Page("051S");
-                    Page.read(current.Number);
+                    Page.Read("051S");
 
                     while (clearToGo == false)
                     {
@@ -816,25 +630,15 @@ namespace SecretOfThePyramids
                     break;
 
                 case "STAY4":
-
-                    current = new Page("049");
-                    Page.read(current.Number);
+                    Page.Read("049");
                     Page.Enter();
-
-                    current = new Page("010");
-                    Page.read(current.Number);
+                    Page.Read("010");
                     Page.Enter();
-
-                    current = new Page("063");
-                    Page.read(current.Number);
+                    Page.Read("063");
                     Page.Enter();
-
-                    current = new Page("066a");
-                    Page.read(current.Number);
+                    Page.Read("066a");
                     Page.Enter();
-
-                    current = new Page("066bR");
-                    Page.read(current.Number);
+                    Page.Read("066bR");
 
                     while (clearToGo == false)
                     {
@@ -857,17 +661,11 @@ namespace SecretOfThePyramids
                     break;
 
                 case "STAY2":
-
-                    current = new Page("076");
-                    Page.read(current.Number);
+                    Page.Read("076");
                     Page.Enter();
-
-                    current = new Page("077a");
-                    Page.read(current.Number);
+                    Page.Read("077a");
                     Page.Enter();
-
-                    current = new Page("077bR");
-                    Page.read(current.Number);
+                    Page.Read("077bR");
 
                     while (clearToGo == false)
                     {
@@ -890,21 +688,13 @@ namespace SecretOfThePyramids
                     break;
 
                 case "LEAVE":
-
-                    current = new Page("039a");
-                    Page.read(current.Number);
+                    Page.Read("039a");
                     Page.Enter();
-
-                    current = new Page("039b");
-                    Page.read(current.Number);
+                    Page.Read("039b");
                     Page.Enter();
-
-                    current = new Page("056a");
-                    Page.read(current.Number);
+                    Page.Read("056a");
                     Page.Enter();
-
-                    current = new Page("056bR");
-                    Page.read(current.Number);
+                    Page.Read("056bR");
 
                     while (clearToGo == false)
                     {
@@ -927,9 +717,7 @@ namespace SecretOfThePyramids
                     break;
 
                 case "NO":
-
-                    current = new Page("113R");
-                    Page.read(current.Number);
+                    Page.Read("113R");
 
                     while (clearToGo == false)
                     {
@@ -952,21 +740,13 @@ namespace SecretOfThePyramids
                     break;
 
                 case "TIME":
-
-                    current = new Page("011a");
-                    Page.read(current.Number);
+                    Page.Read("011a");
                     Page.Enter();
-
-                    current = new Page("011b");
-                    Page.read(current.Number);
+                    Page.Read("011b");
                     Page.Enter();
-
-                    current = new Page("075a");
-                    Page.read(current.Number);
+                    Page.Read("075a");
                     Page.Enter();
-
-                    current = new Page("075bR");
-                    Page.read(current.Number);
+                    Page.Read("075bR");
 
                     while (clearToGo == false)
                     {
@@ -989,13 +769,9 @@ namespace SecretOfThePyramids
                     break;
 
                 case "ESCAPE2":
-
-                    current = new Page("111");
-                    Page.read(current.Number);
+                    Page.Read("111");
                     Page.Enter();
-
-                    current = new Page("112R");
-                    Page.read(current.Number);
+                    Page.Read("112R");
 
                     while (clearToGo == false)
                     {
@@ -1018,12 +794,9 @@ namespace SecretOfThePyramids
                     break;
 
                 case "GET OUT":
-                    current = new Page("084a");
-                    Page.read(current.Number);
+                    Page.Read("084a");
                     Page.Enter();
-
-                    current = new Page("084bR");
-                    Page.read(current.Number);
+                    Page.Read("084bR");
 
                     while (clearToGo == false)
                     {
@@ -1046,17 +819,11 @@ namespace SecretOfThePyramids
                     break;
 
                 case "CONTINUE":
-
-                    current = new Page("114");
-                    Page.read(current.Number);
+                    Page.Read("114");
                     Page.Enter();
-
-                    current = new Page("116a");
-                    Page.read(current.Number);
+                    Page.Read("116a");
                     Page.Enter();
-
-                    current = new Page("116bR");
-                    Page.read(current.Number);
+                    Page.Read("116bR");
 
                     while (clearToGo == false)
                     {
@@ -1079,16 +846,11 @@ namespace SecretOfThePyramids
                     break;
 
                 case "RAID":
-                    current = new Page("016");
-                    Page.read(current.Number);
+                    Page.Read("016");
                     Page.Enter();
-
-                    current = new Page("008a");
-                    Page.read(current.Number);
+                    Page.Read("008a");
                     Page.Enter();
-
-                    current = new Page("008bS");
-                    Page.read(current.Number);
+                    Page.Read("008bS");
 
                     while (clearToGo == false)
                     {
@@ -1111,16 +873,11 @@ namespace SecretOfThePyramids
                     break;
 
                 case "TOO DANGEROUS":
-                    current = new Page("014");
-                    Page.read(current.Number);
+                    Page.Read("014");
                     Page.Enter();
-
-                    current = new Page("106a");
-                    Page.read(current.Number);
+                    Page.Read("106a");
                     Page.Enter();
-
-                    current = new Page("106bR");
-                    Page.read(current.Number);
+                    Page.Read("106bR");
 
                     while (clearToGo == false)
                     {
@@ -1143,28 +900,17 @@ namespace SecretOfThePyramids
                     break;
 
                 case "ACCEPT2":
-                    current = new Page("034a");
-                    Page.read(current.Number);
+                    Page.Read("034a");
                     Page.Enter();
-
-                    current = new Page("034b");
-                    Page.read(current.Number);
+                    Page.Read("034b");
                     Page.Enter();
-
-                    current = new Page("035");
-                    Page.read(current.Number);
+                    Page.Read("035");
                     Page.Enter();
-
-                    current = new Page("065");
-                    Page.read(current.Number);
+                    Page.Read("065");
                     Page.Enter();
-
-                    current = new Page("079a");
-                    Page.read(current.Number);
+                    Page.Read("079a");
                     Page.Enter();
-
-                    current = new Page("079bS");
-                    Page.read(current.Number);
+                    Page.Read("079bS");
 
                     while (clearToGo == false)
                     {
@@ -1187,12 +933,9 @@ namespace SecretOfThePyramids
                     break;
 
                 case "JOIN":
-                    current = new Page("028a");
-                    Page.read(current.Number);
+                    Page.Read("028a");
                     Page.Enter();
-
-                    current = new Page("028bR");
-                    Page.read(current.Number);
+                    Page.Read("028bR");
 
                     while (clearToGo == false)
                     {
@@ -1215,20 +958,13 @@ namespace SecretOfThePyramids
                     break;
 
                 case "TOO FAR OUT":
-                    current = new Page("082a");
-                    Page.read(current.Number);
+                    Page.Read("082a");
                     Page.Enter();
-
-                    current = new Page("082b");
-                    Page.read(current.Number);
+                    Page.Read("082b");
                     Page.Enter();
-
-                    current = new Page("083a");
-                    Page.read(current.Number);
+                    Page.Read("083a");
                     Page.Enter();
-
-                    current = new Page("083bR");
-                    Page.read(current.Number);
+                    Page.Read("083bR");
 
                     while (clearToGo == false)
                     {
@@ -1251,12 +987,9 @@ namespace SecretOfThePyramids
                     break;
 
                 case "NARROW":
-                    current = new Page("074a");
-                    Page.read(current.Number);
+                    Page.Read("074a");
                     Page.Enter();
-
-                    current = new Page("074bS");
-                    Page.read(current.Number);
+                    Page.Read("074bS");
 
                     while (clearToGo == false)
                     {
@@ -1279,9 +1012,8 @@ namespace SecretOfThePyramids
                     break;
 
                 case "TELEPHONE":
-
-                    current = new Page("054R");
-                    Page.read(current.Number);
+                    Page.Read("054R");
+                    
 
                     while (clearToGo == false)
                     {
@@ -1304,17 +1036,11 @@ namespace SecretOfThePyramids
                     break;
 
                 case "CAR":
-
-                    current = new Page("030");
-                    Page.read(current.Number);
+                    Page.Read("030");
                     Page.Enter();
-
-                    current = new Page("005");
-                    Page.read(current.Number);
+                    Page.Read("005");
                     Page.Enter();
-
-                    current = new Page("031S");
-                    Page.read(current.Number);
+                    Page.Read("031S");
 
                     while (clearToGo == false)
                     {
@@ -1337,17 +1063,11 @@ namespace SecretOfThePyramids
                     break;
 
                 case "RAID2":
-
-                    current = new Page("080a");
-                    Page.read(current.Number);
+                    Page.Read("080a");
                     Page.Enter();
-
-                    current = new Page("080b");
-                    Page.read(current.Number);
+                    Page.Read("080b");
                     Page.Enter();
-
-                    current = new Page("081S");
-                    Page.read(current.Number);
+                    Page.Read("081S");
 
                     while (clearToGo == false)
                     {
@@ -1370,8 +1090,7 @@ namespace SecretOfThePyramids
                     break;
 
                 case "KEEP FLYING":
-                    current = new Page("092R");
-                    Page.read(current.Number);
+                    Page.Read("092R");
 
                     while (clearToGo == false)
                     {
@@ -1394,21 +1113,13 @@ namespace SecretOfThePyramids
                     break;
 
                 case "LAND":
-
-                    current = new Page("045");
-                    Page.read(current.Number);
+                    Page.Read("045");
                     Page.Enter();
-
-                    current = new Page("046a");
-                    Page.read(current.Number);
+                    Page.Read("046a");
                     Page.Enter();
-
-                    current = new Page("046b");
-                    Page.read(current.Number);
+                    Page.Read("046b");
                     Page.Enter();
-
-                    current = new Page("085S");
-                    Page.read(current.Number);
+                    Page.Read("085S");
 
                     while (clearToGo == false)
                     {
@@ -1431,13 +1142,9 @@ namespace SecretOfThePyramids
                     break;
 
                 case "STAY3":
-
-                    current = new Page("101a");
-                    Page.read(current.Number);
+                    Page.Read("101a");
                     Page.Enter();
-
-                    current = new Page("101bR");
-                    Page.read(current.Number);
+                    Page.Read("101bR");
 
                     while (clearToGo == false)
                     {
@@ -1460,21 +1167,13 @@ namespace SecretOfThePyramids
                     break;
 
                 case "ACROSS THE DESERT":
-
-                    current = new Page("093");
-                    Page.read(current.Number);
+                    Page.Read("093");
                     Page.Enter();
-
-                    current = new Page("072");
-                    Page.read(current.Number);
+                    Page.Read("072");
                     Page.Enter();
-
-                    current = new Page("055a");
-                    Page.read(current.Number);
+                    Page.Read("055a");
                     Page.Enter();
-
-                    current = new Page("055bS");
-                    Page.read(current.Number);
+                    Page.Read("055bS");
 
                     while (clearToGo == false)
                     {
@@ -1497,13 +1196,9 @@ namespace SecretOfThePyramids
                     break;
 
                 case "INVESTIGATE":
-
-                    current = new Page("038a");
-                    Page.read(current.Number);
+                    Page.Read("038a");
                     Page.Enter();
-
-                    current = new Page("038bR");
-                    Page.read(current.Number);
+                    Page.Read("038bR");
 
                     while (clearToGo == false)
                     {
@@ -1526,17 +1221,11 @@ namespace SecretOfThePyramids
                     break;
 
                 case "SLIP AWAY":
-
-                    current = new Page("058");
-                    Page.read(current.Number);
+                    Page.Read("058");
                     Page.Enter();
-
-                    current = new Page("099a");
-                    Page.read(current.Number);
+                    Page.Read("099a");
                     Page.Enter();
-
-                    current = new Page("099bR");
-                    Page.read(current.Number);
+                    Page.Read("099bR");
 
                     while (clearToGo == false)
                     {
@@ -1559,13 +1248,9 @@ namespace SecretOfThePyramids
                     break;
 
                 case "VILLA":
-
-                    current = new Page("078");
-                    Page.read(current.Number);
+                    Page.Read("078");
                     Page.Enter();
-
-                    current = new Page("020R");
-                    Page.read(current.Number);
+                    Page.Read("020R");                   
 
                     while (clearToGo == false)
                     {
@@ -1587,7 +1272,7 @@ namespace SecretOfThePyramids
 
                     break;
 
-            }
+            }*/
 
         }    
     
