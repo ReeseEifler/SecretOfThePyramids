@@ -10,12 +10,12 @@ experience. Even if you only dreamed it, you're not going through that again!
 
 
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                                                                           xxxxx
-                                                                      xxxxxxxxxx
-Would you like to RESTART?                                  xxxxxxxxxxxxxxxxxxxx
-                                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                                                          xxxxx
+                             Would you like to                       xxxxxxxxxx
+                                                           xxxxxxxxxxxxxxxxxxxx
+                            RESTART    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxx                               OR                 
-xxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxx                                    Just press ENTER to quit
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                
+xxxxxxxxxx                             QUIT?
+xxxxxxxxxxxxxxxxxxxx                         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx               

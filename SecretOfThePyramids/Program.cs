@@ -96,25 +96,32 @@ namespace SecretOfThePyramids
 
                 if (userValue == choice1)
                 {
-                    if ((choice1 == "ACCEPT" && choice2 == "NARROW") || (choice1 == "RAID" && choice2 == "VILLA")) 
+                    if (choice1 == "DREAM")
+                    {
+                        choice1 = "GO";
+                        noErrorYet = true;
+                        choice = choice1;
+                        clearToGo = true;
+                    }
+                    else if ((choice1 == "ACCEPT" && choice2 == "NARROW") || (choice1 == "RAID" && choice2 == "VILLA")) 
                     {
                         choice1 += "2";
                         noErrorYet = true;
-                        choice = choice2;
+                        choice = choice1;
                         clearToGo = true;
                     }
                     else if (choice1 == "STAY" && choice2 == "ACROSS THE DESERT")
                     {
                         choice1 += "3";
                         noErrorYet = true;
-                        choice = choice2;
+                        choice = choice1;
                         clearToGo = true;
                     }
                     else if (choice1 == "INSIST" && choice2 == "STAY")
                     {
                         choice1 += "4";
                         noErrorYet = true;
-                        choice = choice2;
+                        choice = choice1;
                         clearToGo = true;
                     }
                     else
@@ -196,7 +203,6 @@ namespace SecretOfThePyramids
 
                 case "ACCEPT":
                     Page.Read("073a");
-                    Page.Read("073bS");
                     caseSwitch = Page.Choice("073bS", "JUMP", "CHANCE");
                     break;
 
@@ -223,10 +229,7 @@ namespace SecretOfThePyramids
 
                 case "JUMP":
                     Page.Read("103");
-                    Page.Enter();
                     Page.Read("110a");
-                    Page.Enter();
-                    Page.Read("110bS");
                     caseSwitch = Page.Choice("110bS", "GET OUT", "CONTINUE");
                     break;
 
