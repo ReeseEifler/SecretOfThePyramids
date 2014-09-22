@@ -79,6 +79,7 @@ namespace SecretOfThePyramids
         {
             Page current = new Page(page);
             Page.Reader(current.Number);
+            Page.Enter();
         }
         public static string Choice(string page, string choice1, string choice2)
         {
@@ -95,15 +96,49 @@ namespace SecretOfThePyramids
 
                 if (userValue == choice1)
                 {
-                    noErrorYet = true;
-                    choice = choice1;
-                    clearToGo = true;
+                    if ((choice1 == "ACCEPT" && choice2 == "NARROW") || (choice1 == "RAID" && choice2 == "VILLA")) 
+                    {
+                        choice1 += "2";
+                        noErrorYet = true;
+                        choice = choice2;
+                        clearToGo = true;
+                    }
+                    else if (choice1 == "STAY" && choice2 == "ACROSS THE DESERT")
+                    {
+                        choice1 += "3";
+                        noErrorYet = true;
+                        choice = choice2;
+                        clearToGo = true;
+                    }
+                    else if (choice1 == "INSIST" && choice2 == "STAY")
+                    {
+                        choice1 += "4";
+                        noErrorYet = true;
+                        choice = choice2;
+                        clearToGo = true;
+                    }
+                    else
+                    {
+                        noErrorYet = true;
+                        choice = choice1;
+                        clearToGo = true;
+                    }
                 }
                 else if (userValue == choice2)
                 {
-                    noErrorYet = true;
-                    choice = choice2;
-                    clearToGo = true;
+                    if ((choice1 == "TIME" && choice2 == "ESCAPE") || (choice1 == "CONVINCE" && choice2 == "AGREE"))
+                    {
+                        choice2 += "2";
+                        noErrorYet = true;
+                        choice = choice2;
+                        clearToGo = true;
+                    }
+                    else
+                    {
+                        noErrorYet = true;
+                        choice = choice2;
+                        clearToGo = true;
+                    }
                 }
                 else
                 {
@@ -134,76 +169,55 @@ namespace SecretOfThePyramids
             {
                 case "TITLE":
                     Page.Read("Title");
-                    Page.Enter();
                     Page.Read("Warning");
-                    Page.Enter();
                     Page.Read("001");
-                    Page.Enter();
                     caseSwitch = "GO";
                     break;
 
                 case "GO":
                     Page.Read("002a");
-                    Page.Enter();
                     Page.Read("002b");
-                    Page.Enter();
                     caseSwitch = Page.Choice("003S", "FOLLOW", "HOTEL");
                     break;
 
                 case "FOLLOW":
                     Page.Read("013a");
-                    Page.Enter();
                     Page.Read("013b");
-                    Page.Enter();
                     Page.Read("037");
-                    Page.Enter();
                     Page.Read("096");
-                    Page.Enter();
                     Page.Read("087a");
-                    Page.Enter();
                     caseSwitch = Page.Choice("087bS", "ACCEPT", "ESCAPE");
                     break;
 
                 case "HOTEL":
                     Page.Read("004a");
-                    Page.Enter();
                     caseSwitch = Page.Choice("004bS", "CHANGE", "ORIGINAL");
                     break;
 
                 case "ACCEPT":
                     Page.Read("073a");
-                    Page.Enter();
                     Page.Read("073bS");
                     caseSwitch = Page.Choice("073bS", "JUMP", "CHANCE");
                     break;
 
                 case "ESCAPE":
                     Page.Read("104a");
-                    Page.Enter();
                     Page.Read("104b");
-                    Page.Enter();
                     Page.Read("100a");
-                    Page.Enter();
-                    caseSwitch = Page.Choice("100bS", "GO", "NO");
+                    caseSwitch = Page.Choice("100bS", "DREAM", "NO");
                     break;
 
                 case "CHANGE":
                     Page.Read("032a");
-                    Page.Enter();
                     Page.Read("032b");
-                    Page.Enter();
                     Page.Read("026");
-                    Page.Enter();
                     Page.Read("023a");
-                    Page.Enter();
                     caseSwitch = Page.Choice("023bS", "RISK", "POLICE");
                     break;
 
                 case "ORIGINAL":
                     Page.Read("036a");
-                    Page.Enter();
                     Page.Read("036b");
-                    Page.Enter();
                     caseSwitch = Page.Choice("042S", "PILLOW", "UNCLE");
                     break;
 
@@ -218,19 +232,230 @@ namespace SecretOfThePyramids
 
                 case "CHANCE":
                     Page.Read("108a");
-                    Page.Enter();
                     caseSwitch = Page.Choice("108bR", "RESTART", "QUIT");
                     break;
-            }
 
+                case "NO":
+                    caseSwitch = Page.Choice("113R", "RESTART", "QUIT");
+                    break;
+
+                case "RISK":
+                    Page.Read("017");
+                    Page.Read("053");
+                    Page.Read("060");
+                    Page.Read("069a");
+                    Page.Read("069b");
+                    Page.Read("027");
+                    Page.Read("068a");
+                    caseSwitch = Page.Choice("068bS", "TIME", "ESCAPE");
+                    break;
+
+                case "POLICE":
+                    Page.Read("059");
+                    Page.Read("012");
+                    Page.Read("044a");
+                    Page.Read("044b");
+                    Page.Read("033a");
+                    caseSwitch = Page.Choice("033bS", "RAID", "TOO DANGEROUS");
+                    break;
+
+                case "PILLOW":
+                    Page.Read("029a");
+                    caseSwitch = Page.Choice("029bS", "GO HOME", "STAY");
+                    break;
+
+                case "UNCLE":
+                    Page.Read("088a");
+                    Page.Read("088b");
+                    Page.Read("094a");
+                    caseSwitch = Page.Choice("094bS", "PYRAMID", "TRAP");
+                    break;
+
+                case "GET OUT":
+                    Page.Read("084a");
+                    caseSwitch = Page.Choice("084bR", "RESTART", "QUIT");
+                    break;
+
+                case "CONTINUE":
+                    Page.Read("114");
+                    Page.Read("116a");
+                    caseSwitch = Page.Choice("116bR", "RESTART", "QUIT");
+                    break;
+
+                case "TIME":
+                    Page.Read("011a");
+                    Page.Read("011b");
+                    Page.Read("075a");
+                    caseSwitch = Page.Choice("075bR", "RESTART", "QUIT");
+                    break;
+
+                case "ESCAPE2":
+                    Page.Read("111");
+                    caseSwitch = Page.Choice("112R", "RESTART", "QUIT");
+                    break;
+
+                case "RAID":
+                    Page.Read("016");
+                    Page.Read("008a");
+                    caseSwitch = Page.Choice("008bS", "ACCEPT", "NARROW");
+                    break;
+
+                case "TOO DANGEROUS":
+                    Page.Read("014");
+                    Page.Read("106a");
+                    caseSwitch = Page.Choice("106bR", "RESTART", "QUIT");
+                    break;
+
+                case "GO HOME":
+                    caseSwitch = Page.Choice("089R", "RESTART", "QUIT");
+                    break;
+
+                case "STAY":
+                    Page.Read("007");
+                    Page.Read("062");
+                    Page.Read("040");
+                    Page.Read("070a");
+                    caseSwitch = Page.Choice("070bS", "CONVINCE", "AGREE");
+                    break;
+
+                case "PYRAMID":
+                    Page.Read("067a");
+                    caseSwitch = Page.Choice("067bR", "RESTART", "QUIT");
+                    break;
+
+                case "TRAP":
+                    Page.Read("109a");
+                    caseSwitch = Page.Choice("109bR", "RESTART", "QUIT");
+                    break;
+
+                case "ACCEPT2":
+                    Page.Read("034a");
+                    Page.Read("034b");
+                    Page.Read("035");
+                    Page.Read("065");
+                    Page.Read("079a");
+                    caseSwitch = Page.Choice("079bS", "JOIN", "TOOO FAR OUT");
+                    break;
+
+                case "NARROW":
+                    Page.Read("074a");
+                    caseSwitch = Page.Choice("074bS", "TELEPHONE", "CAR");
+                    break;
+
+                case "CONVINCE":
+                    Page.Read("024");
+                    caseSwitch = Page.Choice("021S", "INSIST",  "STAY");
+                    break;
+
+                case "AGREE2":
+                    Page.Read("090a");
+                    caseSwitch = Page.Choice("090bR", "RESTART", "QUIT");
+                    break;
+
+                case "JOIN":
+                    Page.Read("028a");
+                    caseSwitch = Page.Choice("028bR", "RESTART", "QUIT");
+                    break;
+
+                case "TOO FAR OUT":
+                    Page.Read("082a");
+                    Page.Read("082b");
+                    Page.Read("083a");
+                    caseSwitch = Page.Choice("083bR", "RESTART", "QUIT");
+                    break;
+
+                case "TELEPHONE":
+                    caseSwitch = Page.Choice("054R", "RESTART", "QUIT");
+                    break;
+
+                case "CAR":
+                    Page.Read("030");
+                    Page.Read("005");
+                    caseSwitch = Page.Choice("031S", "RAID", "VILLA");
+                    break;
+
+                case "INSIST":
+                    Page.Read("097a");
+                    Page.Read("097b");
+                    Page.Read("018");
+                    Page.Read("019");
+                    Page.Read("050a");
+                    Page.Read("050b");
+                    caseSwitch = Page.Choice("051S", "STAY", "LEAVE");
+                    break;
+
+                case "STAY4":
+                    Page.Read("049");
+                    Page.Read("010");
+                    Page.Read("063");
+                    Page.Read("066a");
+                    caseSwitch = Page.Choice("066bR", "RESTART", "QUIT");
+                    break;
+
+                case "RAID2":
+                    Page.Read("080a");
+                    Page.Read("080b");
+                    caseSwitch = Page.Choice("081S", "KEEP FLYING", "LAND");
+                    break;
+
+                case "VILLA":
+                    Page.Read("078");
+                    caseSwitch = Page.Choice("020R", "RESTART", "QUIT");
+                    break;
+
+                case "STAY2":
+                    Page.Read("076");
+                    Page.Read("077a");
+                    caseSwitch = Page.Choice("077bR", "RESTART", "QUIT");
+                    break;
+
+                case "LEAVE":
+                    Page.Read("039a");
+                    Page.Read("039b");
+                    Page.Read("056a");
+                    caseSwitch = Page.Choice("056bR", "RESTART", "QUIT");
+                    break;
+
+                case "KEEP FLYING":
+                    caseSwitch = Page.Choice("092R", "RESTART", "QUIT");
+                    break;
+
+                case "LAND":
+                    Page.Read("045");
+                    Page.Read("046a");
+                    Page.Read("046b");
+                    caseSwitch = Page.Choice("085S", "STAY", "ACROSS THE DESERT"); 
+                    break;
+
+                case "STAY3":
+                    Page.Read("101a");
+                    caseSwitch = Page.Choice("101bR", "RESTART", "QUIT");
+                    break;
+
+                case "ACROSS THE DESERT":
+                    Page.Read("093");
+                    Page.Read("072");
+                    Page.Read("055a");
+                    caseSwitch = Page.Choice("085S", "INVESTIGATE", "SLIP AWAY"); 
+                    break;
+
+                case "INVESTIGATE":
+                    Page.Read("038a");
+                    caseSwitch = Page.Choice("038bR", "RESTART", "QUIT");
+                    break;
+
+                case "SLIP AWAY":
+                    Page.Read("058");
+                    Page.Read("099a");
+                    caseSwitch = Page.Choice("099bR", "RESTART", "QUIT");
+                    break;
+            }
             return caseSwitch;
         }
-        
     }
 
     class Program
     {
-        
         static void Main(string[] args)
         {
             string caseSwitch = "TITLE";
@@ -251,1028 +476,6 @@ namespace SecretOfThePyramids
                 }
                 
             }
-            /*
-            switch (caseSwitch)
-            {
-                
-
-
-                case "ESCAPE":
-                    Page.Read("104a");
-                    Page.Enter();
-                    Page.Read("104b");
-                    Page.Enter();
-                    Page.Read("100a");
-                    Page.Enter();
-                    Page.Read("100bS");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "GO")
-                        {
-                            goto case "GO";
-                        }
-                        else if (userValue == "NO")
-                        {
-                            goto case "NO";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                case "RISK":
-                    Page.Read("017");
-                    Page.Enter();
-                    Page.Read("053");
-                    Page.Enter();
-                    Page.Read("060");
-                    Page.Enter();
-                    Page.Read("069a");
-                    Page.Enter();
-                    Page.Read("069b");
-                    Page.Enter();
-                    Page.Read("027");
-                    Page.Enter();
-                    Page.Read("068a");
-                    Page.Enter();
-                    Page.Read("068bS");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "TIME")
-                        {
-                            goto case "TIME";
-                        }
-                        else if (userValue == "ESCAPE")
-                        {
-                            goto case "ESCAPE2";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                case "POLICE":
-                    Page.Read("059");
-                    Page.Enter();
-                    Page.Read("012");
-                    Page.Enter();
-                    Page.Read("044a");
-                    Page.Enter();
-                    Page.Read("044b");
-                    Page.Enter();
-                    Page.Read("033a");
-                    Page.Enter();
-                    Page.Read("033bS");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RAID")
-                        {
-                            goto case "RAID";
-                        }
-                        else if (userValue == "TOO DANGEROUS")
-                        {
-                            goto case "TOO DANGEROUS";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                
-
-                case "CHANCE":
-                    Page.Read("108a");
-                    Page.Enter();
-                    Page.Read("108bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-                
-                
-
-                case "PILLOW":
-                    Page.Read("029a");
-                    Page.Enter();
-                    Page.Read("029bS");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "GO HOME")
-                        {
-                            goto case "GO HOME";
-                        }
-                        else if (userValue == "STAY")
-                        {
-                            goto case "STAY";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    } 
-
-                    break;
-
-                case "UNCLE":
-                    Page.Read("088a");
-                    Page.Enter();
-                    Page.Read("088b");
-                    Page.Enter();
-                    Page.Read("094a");
-                    Page.Enter();
-                    Page.Read("094bS");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "PYRAMID")
-                        {
-                            goto case "PYRAMID";
-                        }
-                        else if (userValue == "TRAP")
-                        {
-                            goto case "TRAP";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                case "PYRAMID":
-                    Page.Read("067a");
-                    Page.Enter();
-                    Page.Read("067bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "TRAP":
-                    Page.Read("109a");
-                    Page.Enter();
-                    Page.Read("109bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "GO HOME":
-                    Page.Read("089R");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "STAY":
-                    Page.Read("007");
-                    Page.Enter();
-                    Page.Read("062");
-                    Page.Enter();
-                    Page.Read("040");
-                    Page.Enter();
-                    Page.Read("070a");
-                    Page.Enter();
-                    Page.Read("070bS");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "CONVINCE")
-                        {
-                            goto case "CONVINCE";
-                        }
-                        else if (userValue == "AGREE")
-                        {
-                            goto case "AGREE2";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-
-                    break;
-
-                case "CONVINCE":
-                    Page.Read("024");
-                    Page.Enter();
-                    Page.Read("021S");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "INSIST")
-                        {
-                            goto case "INSIST";
-                        }
-                        else if (userValue == "STAY")
-                        {
-                            goto case "STAY4";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                case "AGREE2":
-                    Page.Read("090a");
-                    Page.Enter();
-                    Page.Read("090bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "INSIST":
-                    Page.Read("097a");
-                    Page.Enter();
-                    Page.Read("097b");
-                    Page.Enter();
-                    Page.Read("018");
-                    Page.Enter();
-                    Page.Read("019");
-                    Page.Enter();
-                    Page.Read("050a");
-                    Page.Enter();
-                    Page.Read("050b");
-                    Page.Enter();
-                    Page.Read("051S");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "STAY")
-                        {
-                            goto case "STAY2";
-                        }
-                        else if (userValue == "LEAVE")
-                        {
-                            goto case "LEAVE";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                case "STAY4":
-                    Page.Read("049");
-                    Page.Enter();
-                    Page.Read("010");
-                    Page.Enter();
-                    Page.Read("063");
-                    Page.Enter();
-                    Page.Read("066a");
-                    Page.Enter();
-                    Page.Read("066bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "STAY2":
-                    Page.Read("076");
-                    Page.Enter();
-                    Page.Read("077a");
-                    Page.Enter();
-                    Page.Read("077bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "LEAVE":
-                    Page.Read("039a");
-                    Page.Enter();
-                    Page.Read("039b");
-                    Page.Enter();
-                    Page.Read("056a");
-                    Page.Enter();
-                    Page.Read("056bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "NO":
-                    Page.Read("113R");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "TIME":
-                    Page.Read("011a");
-                    Page.Enter();
-                    Page.Read("011b");
-                    Page.Enter();
-                    Page.Read("075a");
-                    Page.Enter();
-                    Page.Read("075bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "ESCAPE2":
-                    Page.Read("111");
-                    Page.Enter();
-                    Page.Read("112R");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "GET OUT":
-                    Page.Read("084a");
-                    Page.Enter();
-                    Page.Read("084bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "CONTINUE":
-                    Page.Read("114");
-                    Page.Enter();
-                    Page.Read("116a");
-                    Page.Enter();
-                    Page.Read("116bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "RAID":
-                    Page.Read("016");
-                    Page.Enter();
-                    Page.Read("008a");
-                    Page.Enter();
-                    Page.Read("008bS");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "ACCEPT")
-                        {
-                            goto case "ACCEPT2";
-                        }
-                        else if (userValue == "NARROW")
-                        {
-                            goto case "NARROW";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                case "TOO DANGEROUS":
-                    Page.Read("014");
-                    Page.Enter();
-                    Page.Read("106a");
-                    Page.Enter();
-                    Page.Read("106bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "ACCEPT2":
-                    Page.Read("034a");
-                    Page.Enter();
-                    Page.Read("034b");
-                    Page.Enter();
-                    Page.Read("035");
-                    Page.Enter();
-                    Page.Read("065");
-                    Page.Enter();
-                    Page.Read("079a");
-                    Page.Enter();
-                    Page.Read("079bS");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "JOIN")
-                        {
-                            goto case "JOIN";
-                        }
-                        else if (userValue == "TOO FAR OUT")
-                        {
-                            goto case "TOO FAR OUT";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-                    
-                    break;
-
-                case "JOIN":
-                    Page.Read("028a");
-                    Page.Enter();
-                    Page.Read("028bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "TOO FAR OUT":
-                    Page.Read("082a");
-                    Page.Enter();
-                    Page.Read("082b");
-                    Page.Enter();
-                    Page.Read("083a");
-                    Page.Enter();
-                    Page.Read("083bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "NARROW":
-                    Page.Read("074a");
-                    Page.Enter();
-                    Page.Read("074bS");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "TELEPHONE")
-                        {
-                            goto case "TELEPHONE";
-                        }
-                        else if (userValue == "CAR")
-                        {
-                            goto case "CAR";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                case "TELEPHONE":
-                    Page.Read("054R");
-                    
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "CAR":
-                    Page.Read("030");
-                    Page.Enter();
-                    Page.Read("005");
-                    Page.Enter();
-                    Page.Read("031S");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RAID")
-                        {
-                            goto case "RAID2";
-                        }
-                        else if (userValue == "VILLA")
-                        {
-                            goto case "VILLA";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                case "RAID2":
-                    Page.Read("080a");
-                    Page.Enter();
-                    Page.Read("080b");
-                    Page.Enter();
-                    Page.Read("081S");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "KEEP FLYING")
-                        {
-                            goto case "KEEP FLYING";
-                        }
-                        else if (userValue == "LAND")
-                        {
-                            goto case "LAND";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                case "KEEP FLYING":
-                    Page.Read("092R");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "LAND":
-                    Page.Read("045");
-                    Page.Enter();
-                    Page.Read("046a");
-                    Page.Enter();
-                    Page.Read("046b");
-                    Page.Enter();
-                    Page.Read("085S");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "STAY")
-                        {
-                            goto case "STAY3";
-                        }
-                        else if (userValue == "ACROSS THE DESERT")
-                        {
-                            goto case "ACROSS THE DESERT";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                case "STAY3":
-                    Page.Read("101a");
-                    Page.Enter();
-                    Page.Read("101bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "ACROSS THE DESERT":
-                    Page.Read("093");
-                    Page.Enter();
-                    Page.Read("072");
-                    Page.Enter();
-                    Page.Read("055a");
-                    Page.Enter();
-                    Page.Read("055bS");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "INVESTIGATE")
-                        {
-                            goto case "INVESTIGATE";
-                        }
-                        else if (userValue == "SLIP AWAY")
-                        {
-                            goto case "SLIP AWAY";
-                        }
-                        else
-                        {
-                            Page.Error("firstError");
-                        }
-                    }
-
-                    break;
-
-                case "INVESTIGATE":
-                    Page.Read("038a");
-                    Page.Enter();
-                    Page.Read("038bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "SLIP AWAY":
-                    Page.Read("058");
-                    Page.Enter();
-                    Page.Read("099a");
-                    Page.Enter();
-                    Page.Read("099bR");
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-                case "VILLA":
-                    Page.Read("078");
-                    Page.Enter();
-                    Page.Read("020R");                   
-
-                    while (clearToGo == false)
-                    {
-                        userValue = Page.Question();
-
-                        if (userValue == "RESTART")
-                        {
-                            goto case "TITLE";
-                        }
-                        else if (userValue == "QUIT")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Page.Error("restart");
-                        }
-                    }
-
-                    break;
-
-            }*/
 
         }    
     
