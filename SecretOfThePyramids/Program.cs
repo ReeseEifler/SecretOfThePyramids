@@ -15,38 +15,37 @@ namespace SecretOfThePyramids
 
         public Page(string number)
         {
-            // this makes current.Number ininto the string name of the appropriate text file
-            
+
             Number = number + ".txt";
+
         }
 
         public static string Reader (string textFile)
         {
-            //this method reads each text file
 
             StreamReader reader = new StreamReader(textFile);
             string line = "";
-
             Console.Clear();
-
             while (line != null)
             {
+
                 line = reader.ReadLine();
                 if (line != null)
-                    Console.WriteLine(line);
+                Console.WriteLine(line);
+
             }
-            
             reader.Close();
             return line;
+
         }
 
         public static string Question()
         {
-            //this method returns a user-entered string
 
             string userValue = Console.ReadLine();
             userValue = userValue.ToUpper();
             return userValue;
+
         }
 
         public static void Error(string errorName)
@@ -64,23 +63,26 @@ namespace SecretOfThePyramids
             {
                 errorNumber = 1;
             }
-
             string[] errorMessages = new string[2];
 
             errorMessages[0] = "Type RESTART or QUIT.";
             errorMessages[1] = "I didn't understand that entry. Try typing it in again.";
+            
             Console.WriteLine(errorMessages[errorNumber]);
         }
+
         public static void Enter()
         {
             Console.ReadLine();
         }
+
         public static void Read(string page)
         {
             Page current = new Page(page);
             Page.Reader(current.Number);
             Page.Enter();
         }
+
         public static string Choice(string page, string choice1, string choice2)
         {
             bool clearToGo = false;
@@ -93,7 +95,6 @@ namespace SecretOfThePyramids
                 bool noErrorYet = true;
                 string userValue = Page.Question();
                 
-
                 if (userValue == choice1)
                 {
                     if (choice1 == "DREAM")
@@ -165,13 +166,11 @@ namespace SecretOfThePyramids
                     }
                 }
             }
-
             return choice;
-
         }
+
         public static string ChooseCase(string caseSwitch)
         {
-            
             switch (caseSwitch)
             {
                 case "TITLE":
