@@ -1,0 +1,21 @@
+﻿xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+  You stop for a moment to think. How can you possibly find your way out? Then
+you remember a rule to follow when you're trapped in a maze: "Every time you 
+reach a fork, turn right." Remembering this calms your nerves somewhat. Now 
+maybe you have a chance.
+
+  Wearily you start to retrace your steps. You just hope that the rule works. 
+At best you know that it will be a long walk.
+
+                                   THE END
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                                                          xxxxx
+                             Would you like to                       xxxxxxxxxx
+                                                           xxxxxxxxxxxxxxxxxxxx
+                            RESTART    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxx                               OR                 
+xxxxxxxxxx                             QUIT?
+xxxxxxxxxxxxxxxxxxxx                         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx    

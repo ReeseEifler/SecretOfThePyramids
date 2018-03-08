@@ -1,0 +1,21 @@
+﻿xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  
+  The cart starts off. You go through narrow alleyways, then down larger 
+streets. Gradually the street noises die away, and you guess that you are
+outside the city.
+
+  "I think we are safely away from our pursuers," says Serena. "If you wish,
+you may find your way from here. If you continue with me to my village, you 
+will be welcome there."
+
+
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                                                          xxxxx
+                                                                     xxxxxxxxxx
+You decide to GET OUT of the cart?                         xxxxxxxxxxxxxxxxxxxx
+                                       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxx                         OR                 
+xxxxxxxxxx                       
+xxxxxxxxxxxxxxxxxxxx             You decide to CONTINUE on to Serena's village?
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx   
